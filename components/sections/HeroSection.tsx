@@ -26,9 +26,9 @@ export function HeroSection() {
           </div>
           <div className="flex items-center justify-center">
             <Image
-              src="/tel-aviv.jpg"
-              width={600}
-              height={600}
+              src="/Tel-Aviv2.jpg"
+              width={650}
+              height={650}
               alt="APEX: Future of AI meets Israeli Edge"
               className="rounded-xl object-contain"
             />
