@@ -1,5 +1,7 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Logo } from "@/components/ui/logo"
+
 
 export default function Footer() {
   return (
@@ -68,8 +70,17 @@ export default function Footer() {
           <p className="text-center text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} APEX. All rights reserved.
           </p>
+          <div className="mt-2 flex items-center justify-center gap-2 text-xs text-muted-foreground">
+            <span>Powered by</span>
+            <Image
+              src="/community O.png"
+              alt="Community O"
+              width={80}
+              height={20}
+              className="opacity-80"
+            />
+          </div>
         </div>
-      </div>
     </footer>
   )
 }
