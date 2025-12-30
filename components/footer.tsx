@@ -2,7 +2,6 @@ import Link from "next/link"
 import Image from "next/image"
 import { Logo } from "@/components/ui/logo"
 
-
 export default function Footer() {
   return (
     <footer className="w-full border-t bg-background py-6">
@@ -14,6 +13,7 @@ export default function Footer() {
               Building Israel&apos;s AI Fortress: From frontier tech to real-world traction - APEX gets you building.
             </p>
           </div>
+
           <div className="space-y-4">
             <h3 className="font-medium">Programs</h3>
             <ul className="space-y-2">
@@ -29,6 +29,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
+
           <div className="space-y-4">
             <h3 className="font-medium">Resources</h3>
             <ul className="space-y-2">
@@ -47,9 +48,9 @@ export default function Footer() {
                   Community
                 </Link>
               </li>
-              
             </ul>
           </div>
+
           <div className="space-y-4">
             <h3 className="font-medium">Legal</h3>
             <ul className="space-y-2">
@@ -66,14 +67,16 @@ export default function Footer() {
             </ul>
           </div>
         </div>
+
         <div className="mt-8 border-t pt-6">
           <p className="text-center text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} APEX. All rights reserved.
           </p>
+
           <div className="mt-2 flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <span>Powered by</span>
             <Image
-              src="/community O.png"
+              src="/communityO.png"
               alt="Community O"
               width={80}
               height={20}
@@ -81,7 +84,7 @@ export default function Footer() {
             />
           </div>
         </div>
+      </div>
     </footer>
   )
 }
-
