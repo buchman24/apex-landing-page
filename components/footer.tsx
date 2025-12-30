@@ -76,7 +76,7 @@ export default function Footer() {
           <div className="mt-2 flex items-center justify-center gap-2 text-xs text-muted-foreground">
             <span>Powered by</span>
             <Image
-              src="/communityO.png"
+              src="/CommunityO.png"
               alt="Community O"
               width={80}
               height={20}
