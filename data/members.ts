@@ -31,8 +31,8 @@ export const foundingTeamMembers: Member[] = [
   { id: "roy", name: "Roy Nissim - Champion Talpiot", description: "2x Founder | PhD", imageSrc: "/team/roy.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-nissim/", isFounder: true },
   { id: "shahar_l", name: "Shahar Lutati - Champion Psagot", description: "AI Architect, Hard problem solver, PhD", imageSrc: "/team/shahar_lutati.jpeg", linkedinUrl: "https://www.linkedin.com/in/shahar-lutati-4b4863118/" },
   { id: "ofek", name: "Ofek Censor - Champion Aram", description: "CEO at Rosewood Systems", imageSrc: "/team/ofek.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofekc/", isFounder: true },
-  { id: "amit", name: "Amit Buchman - COS", description: "Founder", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
-  { id: "talya", name: "Talya Pines - Intern", description: "MBA intern @ Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
+  { id: "amit", name: "Amit Buchman - COS", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
+  { id: "talya", name: "Talya Pines", description: "MBA intern @ Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
 ];
 
 export const communityMembers: Member[] = [
