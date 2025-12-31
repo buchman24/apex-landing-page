@@ -30,6 +30,9 @@ export function VisionSection() {
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-primary">
             1 Nation Building Its Tech Sovereignty.
           </p>
+           <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-primary">
+            Stronger.
+          </p>
         {/* </motion.div> */} </div>
       </div>
     </section>
