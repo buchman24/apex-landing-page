@@ -39,6 +39,7 @@ export function Community() {
   return (
     <section className="w-full py-12 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
+        
        {/* Advisory Board Section */}
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Advisory Board</h2>
