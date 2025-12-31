@@ -25,7 +25,7 @@ export function VisionSection() {
             APEX unites elite minds from the army, academia, and industry to build a sovereign AI ecosystem - fast-tracking founders and builders to lead breakthrough ventures, born in Israel and built for the world.
           </p>
           <p className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 text-foreground">
-            5 Years. 150 Founders. 500 AI Architects.
+            5 Years. 150 Founders. 750 AI Architects. 60 AI Researchers.
           </p>
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold mt-4 text-primary">
             1 Nation Building Its Tech Sovereignty.
