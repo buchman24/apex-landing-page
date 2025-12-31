@@ -235,13 +235,13 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           />
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/dreamgroup.com//w/400/h/400"
             alt="Dream Security"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           <Image
             src="https://cdn.brandfetch.io/wiz.io/w/400/h/400"
             alt="Wiz"
