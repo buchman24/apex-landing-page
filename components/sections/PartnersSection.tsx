@@ -116,27 +116,27 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           />
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/brightdata.com/w/400/h/400"
             alt="Bright Data"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
-          <Image
+          /> */}
+          {/* <Image
             src="https://cdn.brandfetch.io/vastdata.com/w/400/h/400"
             alt="Vast Data"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
-          <Image
+          /> */}
+          {/* <Image
             src="https://cdn.brandfetch.io/aidoc.com/w/400/h/400"
             alt="Aidoc"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           <Image
             src="https://cdn.brandfetch.io/anecdotes.ai/w/400/h/400"
             alt="Anecdotes AI"
@@ -144,13 +144,13 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           />
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/run.ai/w/400/h/400"
             alt="Run.ai"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           {/* <Image
             src="https://cdn.brandfetch.io/deci.ai/w/400/h/400"
             alt="Deci AI"
@@ -228,13 +228,13 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           />
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/bcg.com/w/400/h/400"
             alt="BCG"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           {/* <Image
             src="https://cdn.brandfetch.io/dreamgroup.com//w/400/h/400"
             alt="Dream Security"
@@ -242,13 +242,13 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           /> */}
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/wiz.io/w/400/h/400"
             alt="Wiz"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           <Image
             src="https://cdn.brandfetch.io/google.com/w/400/h/400"
             alt="Google"
@@ -273,6 +273,20 @@ export function PartnersSection() {
           <Image
             src="https://cdn.brandfetch.io/meta.com/w/400/h/400"
             alt="Meta"
+            width={120}
+            height={60}
+            className="object-contain h-12 w-auto mx-auto"
+          />
+                    <Image
+            src="https://cdn.brandfetch.io/catonetworks.com/w/400/h/400"
+            alt="Cato"
+            width={120}
+            height={60}
+            className="object-contain h-12 w-auto mx-auto"
+          />
+                    <Image
+            src="https://cdn.brandfetch.io/doubleai.com/w/400/h/400"
+            alt="AA-I"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
