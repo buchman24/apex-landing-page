@@ -58,8 +58,6 @@ export const communityMembers: Member[] = [
 
   // Women members
   { id: "stav_l", name: "Stav Levy", description: "CEO and Co-Founder @ Alta | AI Revenue Workforce", imageSrc: "/team/stav_levy.jfif", linkedinUrl: "https://www.linkedin.com/in/stav-levy/" },
-  { id: "yael_d", name: "Yael Daihes", description: "Founder at Stealth | AI and Data Builder", imageSrc: "/team/yael_daihes.jfif", linkedinUrl: "https://www.linkedin.com/in/yael-daihes/" },
-
   // Rest of community
   { id: "adi", name: "Adi Glasman", description: "Vice President of Engineering & Data Zendesk", imageSrc: "/team/adi.jpeg", linkedinUrl: "https://www.linkedin.com/in/glasman/" },
   // { id: "david_k", name: "David Kadouch", description: "Google AI, Technion", imageSrc: "/team/david_kadouch.jfif", linkedinUrl: "https://www.linkedin.com/in/davidkad/" },
