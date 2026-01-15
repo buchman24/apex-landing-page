@@ -21,7 +21,7 @@ export const advisoryBoardMembers: Member[] = [
   { id: "danny_g", name: "Danny Grander", description: "Co-Founder at Snyk, Angel Investor", imageSrc: "/team/danny_grander.jpeg", linkedinUrl: "https://www.linkedin.com/in/grander/" },
   { id: "michael_c", name: "Michael Cohn", description: "Managing Partner at Overline", imageSrc: "/team/Michael Cohn.jpeg", linkedinUrl: "linkedin.com/in/michaelcohn" },
   { id: "elroei", name: "Elroei Buchman", description: "Venture Builder", imageSrc: "/team/elroei.png", linkedinUrl: "https://www.linkedin.com/in/elroei-buchman-9b59931/", isFounder: true },
-  { id: "adaf_f", name: "Adam Fisher", description: "Managing Partner at Bessemer Venture Partners", imageSrc: "/team/Adam FIsher.jpeg", linkedinUrl: "https://www.linkedin.com/in/adamrfisher/" },
+  { id: "adaf_f", name: "Adam Fisher", description: "Managing Partner at Bessemer Venture Partners", imageSrc: "/team/adam_f.JPG", linkedinUrl: "https://www.linkedin.com/in/adamrfisher/" },
 
 ];
 
@@ -70,7 +70,7 @@ export const communityMembers: Member[] = [
   { id: "ido_b", name: "Ido Ben Shaul", description: "AA-I Technologies", imageSrc: "/team/ido_ben_shaul.png", linkedinUrl: "https://www.linkedin.com/in/ido-ben-shaul-482449147/" },
   { id: "elad_l", name: "Elad Levi", description: "CTO at Plurai, PhD", imageSrc: "/team/elad_levi.jpeg", linkedinUrl: "https://www.linkedin.com/in/elad-levi-a938a3121/" },
   { id: "ilan_k", name: "Ilan Kadar", description: "CEO at Plurai, PhD", imageSrc: "/team/ilan_kader.jpeg", linkedinUrl: "https://www.linkedin.com/in/ilan-kadar-b57ba511b/" },
-  { id: "roei_h", name: "Roei Haviv", description: "Investor at Bessemer Venture Partners", imageSrc: "/team/roei_haviv.jpeg", linkedinUrl: "https://www.linkedin.com/in/roeihaviv/" },
+  { id: "roei_h", name: "Roei Haviv", description: "Investor at Bessemer Venture Partners", imageSrc: "/team/roei_h.JPG", linkedinUrl: "https://www.linkedin.com/in/roeihaviv/" },
   { id: "nativ", name: "Nativ Levy", description: "Head of AI at AI-IL", imageSrc: "/team/nativ.jpeg", linkedinUrl: "https://www.linkedin.com/in/nativ-levy/" },
   // { id: "benny_m", name: "Benny Meir", description: "DevOps Ninja", imageSrc: "/team/benny_meir.png", linkedinUrl: "" },
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
