@@ -17,11 +17,11 @@ export interface Alumni {
 
 
 export const advisoryBoardMembers: Member[] = [
+  { id: "adaf_f", name: "Adam Fisher", description: "Managing Partner at Bessemer Venture Partners", imageSrc: "/team/adam_f.JPG", linkedinUrl: "https://www.linkedin.com/in/adamrfisher/" },
   { id: "omer_d", name: "Omer Dagan", description: "Entrepreneur, People-Centric CIO, Ex-Commander Lotem and Apex Advisory", imageSrc: "/team/omer_dagan.jpeg", linkedinUrl: "https://www.linkedin.com/in/omer-dagan-%F0%9F%8E%97%EF%B8%8F-957916149/" },
   { id: "danny_g", name: "Danny Grander", description: "Co-Founder at Snyk, Angel Investor", imageSrc: "/team/danny_grander.jpeg", linkedinUrl: "https://www.linkedin.com/in/grander/" },
   { id: "michael_c", name: "Michael Cohn", description: "Managing Partner at Overline", imageSrc: "/team/Michael Cohn.jpeg", linkedinUrl: "linkedin.com/in/michaelcohn" },
   { id: "elroei", name: "Elroei Buchman", description: "Venture Builder", imageSrc: "/team/elroei.png", linkedinUrl: "https://www.linkedin.com/in/elroei-buchman-9b59931/", isFounder: true },
-  { id: "adaf_f", name: "Adam Fisher", description: "Managing Partner at Bessemer Venture Partners", imageSrc: "/team/adam_f.JPG", linkedinUrl: "https://www.linkedin.com/in/adamrfisher/" },
 
 ];
 
