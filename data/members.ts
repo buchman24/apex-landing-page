@@ -45,7 +45,7 @@ export const communityMembers: Member[] = [
   { id: "gal_c", name: "Gal Chechik", description: "Sr. Director of AI Research at NVIDIA, Professor at BIU", imageSrc: "/team/gal_chechik.jpg", linkedinUrl: "https://www.linkedin.com/in/gal-chechik-00a6b44/" },
 
   // Additional Advisory Members
-  { id: "tom_h", name: "Tom Hoffen", description: "CTO and Co-Founder at Alta | AI Revenue Workforce", imageSrc: "/team/tom.png", linkedinUrl: "https://www.linkedin.com/in/tom-hoffen-8722b88a/" },
+  // { id: "tom_h", name: "Tom Hoffen", description: "CTO and Co-Founder at Alta | AI Revenue Workforce", imageSrc: "/team/tom.png", linkedinUrl: "https://www.linkedin.com/in/tom-hoffen-8722b88a/" },
   { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" },
   { id: "yehoshua_c", name: "Yehoshua (Shuki) Cohen", description: "VP Data at AI21 Labs", imageSrc: "/alumni/Yehoshua Cohen.jpg", linkedinUrl: "https://www.linkedin.com/in/shuki-cohen/?originalSubdomain=il"},
   { id: "amos_b", name: "Amos Bar Joseph", description: "CEO @ getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
@@ -67,7 +67,7 @@ export const communityMembers: Member[] = [
   { id: "assaf_e", name: "Assaf Elovic", description: "Director, Head of AI at monday.com", imageSrc: "/team/assaf_elovic.jpeg", linkedinUrl: "https://www.linkedin.com/in/assafe/" },
   { id: "roy_m", name: "Roy Miara", description: "AI leader at Tenzai", imageSrc: "/team/miara.png", linkedinUrl: "https://www.linkedin.com/in/miararoy/" },
   { id: "gadi_l", name: "Gadi Lifshitz", description: "Director of Engineering at Cato Networks", imageSrc: "/team/gadi.jpeg", linkedinUrl: "https://www.linkedin.com/in/lgadi/" },
-  { id: "ido_b", name: "Ido Ben Shaul", description: "AA-I Technologies", imageSrc: "/team/ido_ben_shaul.png", linkedinUrl: "https://www.linkedin.com/in/ido-ben-shaul-482449147/" },
+  // { id: "ido_b", name: "Ido Ben Shaul", description: "AA-I Technologies", imageSrc: "/team/ido_ben_shaul.png", linkedinUrl: "https://www.linkedin.com/in/ido-ben-shaul-482449147/" },
   { id: "elad_l", name: "Elad Levi", description: "CTO at Plurai, PhD", imageSrc: "/team/elad_levi.jpeg", linkedinUrl: "https://www.linkedin.com/in/elad-levi-a938a3121/" },
   { id: "ilan_k", name: "Ilan Kadar", description: "CEO at Plurai, PhD", imageSrc: "/team/ilan_kader.jpeg", linkedinUrl: "https://www.linkedin.com/in/ilan-kadar-b57ba511b/" },
   { id: "roei_h", name: "Roei Haviv", description: "Investor at Bessemer Venture Partners", imageSrc: "/team/roei_h.jpg", linkedinUrl: "https://www.linkedin.com/in/roeihaviv/" },
