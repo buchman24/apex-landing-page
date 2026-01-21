@@ -63,12 +63,12 @@ export function LocationSection() {
             <div>
               <h3 className="text-2xl font-medium mb-2 text-foreground">HaTachana</h3>
               <p className="text-muted-foreground text-lg">
-                Ashkelon Street 14, Tel Aviv-Yafo
+                Ashkelon Street 4, Tel Aviv-Yafo
               </p>
             </div>
             <div className="flex justify-center md:justify-end">
               <Button asChild size="lg" variant="secondary" className="rounded-full px-6">
-                <Link href="https://www.google.com/maps/place/Ashkelon+St+14,+Tel+Aviv-Jaffa/@32.058565,34.7596384,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4c97924f5d37:0x155f2101d62d20d6!8m2!3d32.058565!4d34.762208!16s%2Fg%2F11dzn3x976?entry=ttu&g_ep=EgoyMDI1MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
+                <Link href="https://www.google.com/maps/place/Ashkelon+St+4,+Tel+Aviv-Jaffa/@32.058565,34.7596384,17z/data=!3m1!4b1!4m6!3m5!1s0x151d4c97924f5d37:0x155f2101d62d20d6!8m2!3d32.058565!4d34.762208!16s%2Fg%2F11dzn3x976?entry=ttu&g_ep=EgoyMDI1MDMzMS4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">
                   Open in Maps
                 </Link>
               </Button>
