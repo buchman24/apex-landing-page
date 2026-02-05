@@ -39,6 +39,17 @@ export function Community() {
   return (
     <section className="w-full py-12 md:py-24 bg-background">
       <div className="container px-4 md:px-6">
+
+        {/* Founding Team Section */}
+        <div className="mb-12 text-center">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Team</h2>
+          <p className="text-muted-foreground md:text-xl mt-2">The core team leading APEX.</p>
+        </div>
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-6 mb-16">
+          {foundingTeamMembers.map((member) => (
+            <MemberCard key={member.id} member={member} />
+          ))}
+        </div>
         
        {/* Advisory Board Section */}
         <div className="mb-12 text-center">
@@ -52,17 +63,6 @@ export function Community() {
 
         </div>
         
-        
-        {/* Founding Team Section */}
-        <div className="mb-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Team</h2>
-          <p className="text-muted-foreground md:text-xl mt-2">The core team leading APEX.</p>
-        </div>
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-6 mb-16">
-          {foundingTeamMembers.map((member) => (
-            <MemberCard key={member.id} member={member} />
-          ))}
-        </div>
 
         {/* Community Section */}
         <div className="mb-12 text-center">
