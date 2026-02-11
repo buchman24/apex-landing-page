@@ -81,13 +81,13 @@ export function PartnersSection() {
             height={60}
             className="object-contain h-12 w-auto mx-auto"
           />
-          <Image
+          {/* <Image
             src="https://cdn.brandfetch.io/nvidia.com/w/400/h/400"
             alt="Nvidia"
             width={120}
             height={60}
             className="object-contain h-12 w-auto mx-auto"
-          />
+          /> */}
           <Image
             src="https://cdn.brandfetch.io/ai21.com/w/400/h/400"
             alt="AI21"
