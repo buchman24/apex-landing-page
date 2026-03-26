@@ -77,7 +77,13 @@ export const communityMembers: Member[] = [
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" },
-  
+  { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
+  { id: "ayal_b", name: "Ayal Baron", description: "CEO at TroupAI", imageSrc: "/team/ayal_baron.jpeg", linkedinUrl: "https://www.linkedin.com/in/ayalbaron/" },
+  { id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
+  { id: "ofer_s", name: "Ofer Shacham", description: "CEO at Majestic Labs AI", imageSrc: "/team/ofer_shacham.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofershacham/" },
+  { id: "ofer_r", name: "Ofer Rozenberg", description: "Principal Engineer, AI Software Stack", imageSrc: "/team/ofer_rozenberg.jpeg", linkedinUrl: "https://www.linkedin.com/in/oferrosenberg/" },
+  { id: "amos_y", name: "Amos Yoffe", description: "Director of Engineering at Cisco Foundation AI", imageSrc: "/team/amos_yoffe.jpeg", linkedinUrl: "https://www.linkedin.com/in/amosyoffe/" },
+  { id: "ori_s", name: "Ori Striechman", description: "VP Research at Cyberillium | Investor", imageSrc: "/team/ori_striechman.jpeg", linkedinUrl: "https://www.linkedin.com/in/ori-striechman/" },
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
