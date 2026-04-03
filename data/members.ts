@@ -38,7 +38,7 @@ export const foundingTeamMembers: Member[] = [
 
 export const communityMembers: Member[] = [
   // Apex Advisory - First Row
-  { id: "yaron_r", name: "Yaron Rosen", description: "Entrepreneur, a16z Scout, angel investor and Apex Advisory", imageSrc: "/team/yaron_rosen.jpg", linkedinUrl: "https://www.linkedin.com/in/yaron-rosen-3b46296/" },
+  // { id: "yaron_r", name: "Yaron Rosen", description: "Entrepreneur, a16z Scout, angel investor and Apex Advisory", imageSrc: "/team/yaron_rosen.jpg", linkedinUrl: "https://www.linkedin.com/in/yaron-rosen-3b46296/" },
   // { id: "david_m", name: "David Magerman", description: "Co-Founder @ Differential Ventures, Ex-renaissance fund and Apex Advisory", imageSrc: "/team/david_magerman.jpeg", linkedinUrl: "https://www.linkedin.com/in/david-magerman-954b25174/" },
   { id: "rotem_l", name: "Rotem Lapid", description: "Head of AI, ORT Israel", imageSrc: "/team/rotem_lapid.png", linkedinUrl: "https://www.linkedin.com/in/rotem-lapid-98b42370/" },
   { id: "ofer_s", name: "Ofer Shacham", description: "CEO at Majestic Labs AI", imageSrc: "/team/ofer_shacham.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofershacham/" },
