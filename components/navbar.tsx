@@ -41,7 +41,7 @@ export function Navbar({ activePage }: NavbarProps) {
           >
             Tracks
           </Link>
-          <DropdownMenu>
+          {/* <DropdownMenu>
             <DropdownMenuTrigger className={`text-base font-medium transition-colors hover:text-primary flex items-center gap-1 ${activePage === "team" ? "text-primary" : ""}`}>
               Community
               <ChevronDown className="h-4 w-4" />
@@ -54,7 +54,7 @@ export function Navbar({ activePage }: NavbarProps) {
                 <Link href="/community/alumni">Alumni</Link>
               </DropdownMenuItem>
             </DropdownMenuContent>
-          </DropdownMenu>
+          </DropdownMenu> */}
         </nav>
         <div className="flex items-center gap-4">
           <ThemeToggle />
