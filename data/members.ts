@@ -10,6 +10,7 @@ export interface Member {
 export interface Alumni {
   id: string;
   name: string;
+  description?: string;
   imageSrc: string;
   linkedinUrl: string;
   cohort?: string;
@@ -46,11 +47,11 @@ export const communityMembers: Member[] = [
   // Additional Advisory Members
   // { id: "tom_h", name: "Tom Hoffen", description: "CTO and Co-Founder at Alta | AI Revenue Workforce", imageSrc: "/team/tom.png", linkedinUrl: "https://www.linkedin.com/in/tom-hoffen-8722b88a/" },
   { id: "seffi_c", name: "Seffi Cohen", description: "Postdoctoral Researcher at Harvard", imageSrc: "/team/seffi_cohen.jfif", linkedinUrl: "https://www.linkedin.com/in/seffi-cohen/" },
-  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" },'  { id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
-  ,{ id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
+  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" }, 
+  { id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
   { id: "yehoshua_c", name: "Yehoshua (Shuki) Cohen", description: "VP Data at AI21 Labs", imageSrc: "/alumni/Yehoshua Cohen.jpg", linkedinUrl: "https://www.linkedin.com/in/shuki-cohen/?originalSubdomain=il"},
-  ,{ id: "amos_b", name: "Amos Bar Joseph", description: "CEO at getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
-  ,{ id: "mark_m", name: "Mark Mendelman", description: "CTO at Highrise.ai", imageSrc: "/team/mark_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/mark-mendelman-a845991b/" },
+  {id: "amos_b", name: "Amos Bar Joseph", description: "CEO at getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
+  { id: "mark_m", name: "Mark Mendelman", description: "CTO at Highrise.ai", imageSrc: "/team/mark_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/mark-mendelman-a845991b/" },
   { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor at BIU", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
   { id: "ayal_b", name: "Ayal Baron", description: "CEO at TroupAI", imageSrc: "/team/ayal_baron.jpeg", linkedinUrl: "https://www.linkedin.com/in/ayalbaron/" },
   { id: "ofer_r", name: "Ofer Rozenberg", description: "Principal Engineer, AI Software Stack", imageSrc: "/team/ofer_rozenberg.jpeg", linkedinUrl: "https://www.linkedin.com/in/oferrosenberg/" },
