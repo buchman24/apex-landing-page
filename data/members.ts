@@ -15,7 +15,6 @@ export interface Alumni {
   cohort?: string;
 }
 
-
 export const advisoryBoardMembers: Member[] = [
   { id: "adaf_f", name: "Adam Fisher", description: "Partner at Bessemer Venture Partners", imageSrc: "/team/adam_f.JPG", linkedinUrl: "https://www.linkedin.com/in/adamrfisher/" },
   { id: "omer_d", name: "Omer Dagan", description: "Entrepreneur, People-Centric CIO, Ex-Commander Lotem and Apex Advisory", imageSrc: "/team/omer_dagan.jpeg", linkedinUrl: "https://www.linkedin.com/in/omer-dagan-%F0%9F%8E%97%EF%B8%8F-957916149/" },
