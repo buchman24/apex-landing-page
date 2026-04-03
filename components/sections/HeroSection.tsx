@@ -7,7 +7,7 @@ export function HeroSection() {
   return (
     <section className="w-full py-12 md:py-20 lg:py-32 xl:py-40 flex items-center min-h-[80vh]">
       <div className="container px-8 md:px-12">
-        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+        <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <Badge className="inline-flex mb-2">Elite Tech Units to AI Frontiers</Badge>
@@ -27,8 +27,8 @@ export function HeroSection() {
           <div className="flex items-center justify-center">
             <Image
               src="/apex_groupphoto.jpg"
-              width={650}
-              height={650}
+              width={900}
+              height={900}
               alt="APEX: Future of AI meets Israeli Edge"
               className="rounded-xl object-contain"
             />
