@@ -47,12 +47,12 @@ export const communityMembers: Member[] = [
   // Additional Advisory Members
   // { id: "tom_h", name: "Tom Hoffen", description: "CTO and Co-Founder at Alta | AI Revenue Workforce", imageSrc: "/team/tom.png", linkedinUrl: "https://www.linkedin.com/in/tom-hoffen-8722b88a/" },
   { id: "seffi_c", name: "Seffi Cohen", description: "Postdoctoral Researcher at Harvard", imageSrc: "/team/seffi_cohen.jfif", linkedinUrl: "https://www.linkedin.com/in/seffi-cohen/" },
-  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" },
+  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" },'  { id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
+  ,{ id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
   { id: "yehoshua_c", name: "Yehoshua (Shuki) Cohen", description: "VP Data at AI21 Labs", imageSrc: "/alumni/Yehoshua Cohen.jpg", linkedinUrl: "https://www.linkedin.com/in/shuki-cohen/?originalSubdomain=il"},
-  { id: "amos_b", name: "Amos Bar Joseph", description: "CEO @ getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
-  { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
+  ,{ id: "amos_b", name: "Amos Bar Joseph", description: "CEO @ getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
+  { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor at BIU", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
   { id: "ayal_b", name: "Ayal Baron", description: "CEO at TroupAI", imageSrc: "/team/ayal_baron.jpeg", linkedinUrl: "https://www.linkedin.com/in/ayalbaron/" },
-  { id: "itay_p", name: "Itay Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
   { id: "ofer_r", name: "Ofer Rozenberg", description: "Principal Engineer, AI Software Stack", imageSrc: "/team/ofer_rozenberg.jpeg", linkedinUrl: "https://www.linkedin.com/in/oferrosenberg/" },
   { id: "amos_y", name: "Amos Yoffe", description: "Director of Engineering at Cisco Foundation AI", imageSrc: "/team/amos_yoffe.jpeg", linkedinUrl: "https://www.linkedin.com/in/amosyoffe/" },
   { id: "ori_s", name: "Ori Striechman", description: "VP Research at Cyberillium | Investor", imageSrc: "/team/ori_striechman.jpeg", linkedinUrl: "https://www.linkedin.com/in/ori-striechman/" },
@@ -67,11 +67,11 @@ export const communityMembers: Member[] = [
   // Women members
   { id: "stav_l", name: "Stav Levy", description: "CEO and Co-Founder @ Alta | AI Revenue Workforce", imageSrc: "/team/stav_levy.jfif", linkedinUrl: "https://www.linkedin.com/in/stav-levy/" },
   // Rest of community
-
-  { id: "idan_h", name: "Idan Habler", description: "AI Security Researcher at CISCO", imageSrc: "/team/idan_h.jpeg", linkedinUrl: "https://www.linkedin.com/in/idan-habler/?originalSubdomain=il" },
+  // { id: "idan_h", name: "Idan Habler", description: "AI Security Researcher at CISCO", imageSrc: "/team/idan_h.jpeg", linkedinUrl: "https://www.linkedin.com/in/idan-habler/?originalSubdomain=il" },
+  { id: "yaron_r", name: "Yaron Rosen", description: "Entrepreneur, a16z Scout, angel investor and Apex Advisory", imageSrc: "/team/yaron_rosen.jpg", linkedinUrl: "https://www.linkedin.com/in/yaron-rosen-3b46296/" },
   { id: "adi", name: "Adi Glasman", description: "Vice President of Engineering & Data Zendesk", imageSrc: "/team/adi.jpeg", linkedinUrl: "https://www.linkedin.com/in/glasman/" },
   // { id: "david_k", name: "David Kadouch", description: "Google AI, Technion", imageSrc: "/team/david_kadouch.jfif", linkedinUrl: "https://www.linkedin.com/in/davidkad/" },
-  { id: "gal", name: "Gal Peretz", description: "Head of AI @ Carbyne | Co-Host @ LangTalks podcast", imageSrc: "/team/gal_perez.png", linkedinUrl: "https://www.linkedin.com/in/gal-peretz/" },
+  // { id: "gal", name: "Gal Peretz", description: "Head of AI @ Carbyne | Co-Host @ LangTalks podcast", imageSrc: "/team/gal_perez.png", linkedinUrl: "https://www.linkedin.com/in/gal-peretz/" },
   { id: "assaf_e", name: "Assaf Elovic", description: "Director, Head of AI at monday.com", imageSrc: "/team/assaf_elovic.jpeg", linkedinUrl: "https://www.linkedin.com/in/assafe/" },
   { id: "roy_m", name: "Roy Miara", description: "AI leader at Tenzai", imageSrc: "/team/miara.png", linkedinUrl: "https://www.linkedin.com/in/miararoy/" },
   { id: "gadi_l", name: "Gadi Lifshitz", description: "Director of Engineering at Cato Networks", imageSrc: "/team/gadi.jpeg", linkedinUrl: "https://www.linkedin.com/in/lgadi/" },
