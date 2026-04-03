@@ -50,6 +50,21 @@ export function Community() {
             <MemberCard key={member.id} member={member} />
           ))}
         </div>
+
+        
+      <div className="flex flex-col items-center justify-center mt-12 mb-20 text-center">
+        <p className="mb-4 text-lg text-muted-foreground">
+          Want to see who came through APEX?
+        </p>
+        <Link
+          href="/community/alumni"
+          className="inline-flex items-center justify-center rounded-2xl bg-blue-500 px-10 py-5 text-lg font-semibold text-white shadow-lg transition hover:bg-blue-600"
+        >
+          Meet the Apex Alumni
+        </Link>
+      </div>
+        
+      <div className="flex flex-col items-center justify-center mt-16 mb-24 text-center">
         
        {/* Advisory Board Section */}
         <div className="mb-12 text-center">
