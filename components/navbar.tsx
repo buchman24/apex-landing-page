@@ -58,8 +58,8 @@ export function Navbar({ activePage }: NavbarProps) {
         </nav>
         <div className="flex items-center gap-4">
           <ThemeToggle />
-          <Button asChild size="lg" className="hidden md:flex">
-            <Link href="/apply">Apply Now</Link>
+         <Button asChild size="lg" className="hidden md:flex">
+          <Link href="/community/alumni">Meet the Alumni</Link>
           </Button>
           <MobileNav />
         </div>
