@@ -18,7 +18,7 @@ export function HeroSection() {
               APEX is a national launchpad, founded by elite tech units alumni to secure Israel's future in AI.
               </p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row">
+            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center md:justify-start">
               <Button asChild size="lg">
                 <Link href="/community/alumni">Meet the Alumni</Link>
               </Button>
