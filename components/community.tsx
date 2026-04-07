@@ -50,7 +50,7 @@ export function Community() {
           ))}
         </div>
 
-        <div className="flex flex-col items-center justify-center mt-12 mb-20 text-center">
+        {/* <div className="flex flex-col items-center justify-center mt-12 mb-20 text-center">
           <p className="mb-4 text-lg text-muted-foreground">
             Want to see who came through APEX?
           </p>
@@ -60,7 +60,7 @@ export function Community() {
           >
             Meet the Apex Alumni
           </Link>
-        </div>
+        </div> */}
 
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Advisory Board</h2>
