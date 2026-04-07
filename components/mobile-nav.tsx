@@ -83,9 +83,14 @@ export function MobileNav() {
             <span className="text-sm">Toggle Theme</span>
             <ThemeToggle />
           </div>
-          <Button asChild className="w-full">
+          {/* <Button asChild className="w-full">
             <Link href="/apply" onClick={() => setOpen(false)}>
               Apply Now
+            </Link>
+          </Button> */}
+          <Button asChild className="w-full">
+            <Link href="/community/alumni" onClick={() => setOpen(false)}>
+              Meet the Alumni
             </Link>
           </Button>
         </div>
