@@ -21,7 +21,7 @@ export default function AlumniPage() {
               <div className="space-y-2">
                 {/* <Badge className="inline-flex mb-2">First Cohort</Badge> */}
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  APEX Architect Beta Cohort - Alumni
+                  APEX Architect - Alumni
                 </h1>
                 <p className="max-w-[800px] text-muted-foreground md:text-xl">
                   Meet the talented graduates from our APEX Cohorts
