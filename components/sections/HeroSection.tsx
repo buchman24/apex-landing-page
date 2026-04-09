@@ -9,7 +9,7 @@ export function HeroSection() {
       <div className="container px-8 md:px-12">
         <div className="grid gap-6 lg:grid-cols-[1fr_600px] lg:gap-12 xl:grid-cols-[1fr_800px]">
           <div className="flex flex-col justify-center space-y-4">
-            <div className="space-y-2">
+            <div className="space-y-2 flex flex-col items-center md:items-start text-center md:text-left">
               <Badge className="inline-flex mb-2">Elite Tech Units to AI Frontiers</Badge>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                 Building Israel&apos;s AI Fortress
@@ -26,7 +26,7 @@ export function HeroSection() {
                 </Button>
               </div>
 
-              <p className="text-sm md:text-base text-muted-foreground/90">
+              <p className="text-sm md:text-base text-muted-foreground/90 text-center md:text-left">
                 Meet the talented graduates from our APEX Cohorts
               </p>
             </div>
