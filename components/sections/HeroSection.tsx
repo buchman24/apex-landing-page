@@ -15,15 +15,23 @@ export function HeroSection() {
                 Building Israel&apos;s AI Fortress
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
-              APEX is a national launchpad, founded by elite tech units alumni to secure Israel's future in AI.
+                APEX is a national launchpad, founded by elite tech units alumni to secure Israel&apos;s future in AI.
               </p>
             </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center md:justify-start">
-              <Button asChild size="lg">
-                <Link href="/community/alumni">Meet the Alumni</Link>
-              </Button>
+
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center md:justify-start">
+                <Button asChild size="lg">
+                  <Link href="/community/alumni">Meet the Alumni</Link>
+                </Button>
+              </div>
+
+              <p className="text-sm md:text-base text-muted-foreground/90">
+                Meet the talented graduates from our APEX Cohorts
+              </p>
             </div>
           </div>
+
           <div className="flex items-center justify-center">
             <Image
               src="/apex_groupphoto.jpg"
@@ -37,4 +45,4 @@ export function HeroSection() {
       </div>
     </section>
   )
-} 
+}
