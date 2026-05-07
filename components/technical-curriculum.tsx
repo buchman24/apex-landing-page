@@ -63,12 +63,12 @@ const lectures: Lecture[] = [
     lecturer: "Dr. Idan Schwartz (BIU)",
     icon: <Brain className="w-6 h-6" />,
     level: "beginner",
-    techLogos: [
-      "https://cdn.brandfetch.io/openai.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/anthropic.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/pytorch.org/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/tensorflow.org/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/openai.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/anthropic.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/pytorch.org/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/tensorflow.org/w/400/h/400?c=1idjQoo38323pC02ZXr"
+    // ]
   },
   {
     id: "lecture-2",
@@ -84,9 +84,9 @@ const lectures: Lecture[] = [
     lecturer: "Dr. Roy Nissim (Red Hat)",
     icon: <Network className="w-6 h-6" />,
     level: "intermediate",
-    techLogos: [
-      "https://cdn.brandfetch.io/huggingface.co/w/400/h/400?c=1idjQoo38323pC02ZXr",
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/huggingface.co/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    // ]
   },
   {
     id: "lecture-3",
@@ -104,10 +104,10 @@ const lectures: Lecture[] = [
     lecturer: "Amos Yoffe",
     icon: <Rocket className="w-6 h-6" />,
     level: "advanced",
-    techLogos: [
-      "https://cdn.brandfetch.io/nvidia.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/aws.amazon.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/nvidia.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/aws.amazon.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
+    // ]
   },
   {
     id: "lecture-4",
@@ -124,9 +124,9 @@ const lectures: Lecture[] = [
     lecturer: "Dr. Danny Harnik (IBM Research) & Dr. Roy Nissim (Red Hat)",
     icon: <Gauge className="w-6 h-6" />,
     level: "advanced",
-    techLogos: [
-      "https://cdn.brandfetch.io/onnx.ai/w/400/h/400?c=1idjQoo38323pC02ZXr",
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/onnx.ai/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    // ]
   },
   {
     id: "lecture-5",
@@ -144,10 +144,10 @@ const lectures: Lecture[] = [
     lecturer: "Dan Padnos (Riverside, ex. AI21 Labs)",
     icon: <Cpu className="w-6 h-6" />,
     level: "advanced",
-    techLogos: [
-      "https://cdn.brandfetch.io/ai21.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/mistral.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/ai21.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/mistral.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
+    // ]
   },
   {
     id: "lecture-6",
@@ -177,12 +177,12 @@ const lectures: Lecture[] = [
     ],
     icon: <Search className="w-6 h-6" />,
     level: "intermediate",
-    techLogos: [
-      "https://cdn.brandfetch.io/pinecone.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/weaviate.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/llamaindex.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/pinecone.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/weaviate.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    //   "https://cdn.brandfetch.io/llamaindex.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
+    // ]
   },
   {
     id: "lecture-8",
@@ -198,9 +198,9 @@ const lectures: Lecture[] = [
     lecturer: "Vlad Luzin (Co-founder & CTO, Thenvoi)",
     icon: <Code2 className="w-6 h-6" />,
     level: "intermediate",
-    techLogos: [
-      "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-    ]
+    // techLogos: [
+    //   "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+    // ]
   },
   {
     id: "lecture-9",
