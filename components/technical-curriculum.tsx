@@ -2,16 +2,12 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { 
   Brain, 
-  Layers, 
   Network, 
   Cpu, 
   Settings, 
-  Database, 
   Search, 
   Code2, 
   Gauge, 
-  Server, 
-  Image as ImageIcon, 
   Sparkles,
   GraduationCap,
   Rocket,
@@ -34,7 +30,6 @@ interface Lecture {
   level?: "beginner" | "intermediate" | "advanced"
 }
 
-// Pre-materials content
 const preMaterials = {
   id: "pre-materials",
   title: "Pre-Course Assignment",
@@ -46,29 +41,26 @@ const preMaterials = {
     "Overview of DL Architectures (Transformers, CNNs, RNNs) & Research Paper Analysis",
   ],
   icon: <Book className="w-6 h-6" />,
-  level: "beginner", // Foundational material
+  level: "beginner",
   techLogos: [
     "https://cdn.brandfetch.io/python.org/w/400/h/400?c=1idjQoo38323pC02ZXr",
     "https://cdn.brandfetch.io/pytorch.org/w/400/h/400?c=1idjQoo38323pC02ZXr",
   ]
 }
 
-// Updated lectures array (condensed to 10)
 const lectures: Lecture[] = [
   {
     id: "lecture-1",
-    title: "AI History & Fundamentals",
-    description: "An overview of AI's evolution, progress, fundamental building blocks, and future directions.",
+    title: "AI Through the Ages",
+    description: "An overview of AI's evolution, from Traditional ML to Deep Learning to Generative AI, and where it's heading.",
     topics: [
-      "The history of AI", 
-      "AI's scaling laws", 
-      "Where AI is heading",
-      "NN layers: Fully connected, convolution layer, recurrent layer",
-      "Backprop & feedforward",
-      "Training parameters and methodologies",
-      "Training problems (vanishing gradients, etc.)",
+      "History of AI: from Traditional ML (rule-based, expert systems) to Deep Learning (CNN, RNN, VAE) to Generative AI (GANs, Diffusion Models, GPTs)",
+      "Training dimensions (pre, post, test-time)",
+      "AI's scaling laws and optimality (e.g. Chinchilla paper)",
+      "Challenges of scaling AI",
+      "The future of foundation models research",
     ],
-    lecturer: "Expert Lecturers",
+    lecturer: "Dr. Idan Schwartz (BIU)",
     icon: <Brain className="w-6 h-6" />,
     level: "beginner",
     techLogos: [
@@ -79,16 +71,17 @@ const lectures: Lecture[] = [
     ]
   },
   {
-    id: "lecture-2", // Renumbered from 3
-    title: "Mastering Transformer Architectures",
-    description: "A deep-dive lecture about the leading model architecture in the modern age",
+    id: "lecture-2",
+    title: "Transformer Fundamentals",
+    description: "A deep-dive into the Transformer architecture and modern LLMs.",
     topics: [
-      "Encoder-decoder structures",
-      "Positional encoding & embeddings",
-      "Multi-head attention (MHA) & QKV matrices",
-      "Model architecture example: GPT-3",
+      "Encoder-Decoder structures",
+      "Tokenizer, Embeddings and Positional Encoding",
+      "Attention (MHA, MQA, GQA, MLA) and QKV matrices",
+      "Advanced architectures: Sparse Attention, MOE, Multi-modal",
+      "Case study: the numbers behind GPT-3",
     ],
-    lecturer: "Roy Nisism",
+    lecturer: "Dr. Roy Nissim (Red Hat)",
     icon: <Network className="w-6 h-6" />,
     level: "intermediate",
     techLogos: [
@@ -96,44 +89,19 @@ const lectures: Lecture[] = [
     ]
   },
   {
-    id: "lecture-3", // Renumbered from 4
-    title: "Advanced Architectures",
-    description: "A deep-dive lecture about emerging model architectures beyond Transformers",
+    id: "lecture-3",
+    title: "Pre-Training: Building an LLM from Scratch",
+    description: "An E2E walkthrough on the work and challenges of training a foundation model.",
     topics: [
-      "Sparse attention (Transformer-XL, RMT, Bert-RMT)",
-      "RWKV, Hyena, Mamba and SSM",
-      "Model architecture example: Jamba",
-    ],
-    lecturer: "AI21 Labs expert",
-    icon: <Cpu className="w-6 h-6" />,
-    level: "advanced",
-    techLogos: [
-      "https://cdn.brandfetch.io/ai21.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/mistral.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
-  },
-  {
-    id: "lecture-4", // Renumbered from 5
-    title: "Model Customization & Tuning",
-    description: "A technical lecture on the various techniques for customizing and tuning AI models",
-    topics: ["Fine-tuning techniques", "RL-based approaches: RLHF, RLAIF", "Distillation and quantization"],
-    lecturer: "Ohad Amosi",
-    icon: <Settings className="w-6 h-6" />,
-    level: "intermediate",
-    techLogos: [
-    ]
-  },
-  {
-    id: "lecture-5", // Renumbered from 6
-    title: "Building Foundation Models",
-    description: "An E2E walkthrough on how to train a foundation model + main challenges",
-    topics: [
+      "What it really takes to train a foundation model",
       "Data collection and curation",
-      "Hardware setup and checkpointing",
-      "Supervised vs unsupervised methods",
-      "Real examples with numbers",
+      "Hardware setup and training parallelization",
+      "Tracking progress and checkpointing",
+      "Lessons from the process",
+      "Team structure and processes",
+      "Case study: Real examples with numbers (data size, compute cost, engineering time)",
     ],
-    lecturer: "Tal Fialkow, VP of AI at Dream Security",
+    lecturer: "Amos Yoffe",
     icon: <Rocket className="w-6 h-6" />,
     level: "advanced",
     techLogos: [
@@ -142,27 +110,63 @@ const lectures: Lecture[] = [
     ]
   },
   {
-    id: "lecture-6", // Renumbered from 7
-    title: "Performance Optimization Techniques",
-    description: "A technical lecture on various performance optimization techniques",
+    id: "lecture-4",
+    title: "Inference Optimizations",
+    description: "A technical lecture on the various techniques to optimize LLM inference.",
     topics: [
-      "Batching strategies",
-      "Attention optimization",
-      "Token prefill optimization",
-      "Pruning and quantization techniques",
+      "Performance metrics: FLOPs, IO, chip/system utilization",
+      "Performance metrics: TTFT, TTOT, E2E, tok/s, req/s, PXX",
+      "Batching strategies: static, dynamic, continuous",
+      "Attention optimization: KV Cache, Flash-attention, Paged-attention",
+      "Token prefill optimization, speculative decoding, medusa layers",
+      "Disaggregated serving & the llm-d project",
     ],
-    lecturer: "Roy Nissim",
-    icon: <Gauge className="w-6 h-6" />, // Kept Gauge icon
+    lecturer: "Dr. Danny Harnik (IBM Research) & Dr. Roy Nissim (Red Hat)",
+    icon: <Gauge className="w-6 h-6" />,
     level: "advanced",
     techLogos: [
       "https://cdn.brandfetch.io/onnx.ai/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/tensorrt.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
     ]
   },
   {
-    id: "lecture-7", // Merged 8 & 9
-    title: "Embeddings, Search & RAG",
-    description: "Understanding vector representations, search techniques, data preparation, and RAG best practices.",
+    id: "lecture-5",
+    title: "Multimodal & Post-Transformer Architectures",
+    description: "Exploring architectures beyond the classical Transformer and multimodal AI.",
+    topics: [
+      "Transformer limitations: quadratic attention costs and finite context windows",
+      "Sparse and extended attention: Transformer-XL and efficiency-oriented variants",
+      "State Space Models (SSMs): RWKV, Hyena, and Mamba",
+      "Hybrid architectures: AI21's Jamba (MoE + Mamba)",
+      "Multimodal model design: fusion architectures for vision, text, and audio",
+      "Architectures for reasoning: Tree-of-Thoughts, self-reflection",
+      "The evolving landscape beyond classical Transformers",
+    ],
+    lecturer: "Dan Padnos (Riverside, ex. AI21 Labs)",
+    icon: <Cpu className="w-6 h-6" />,
+    level: "advanced",
+    techLogos: [
+      "https://cdn.brandfetch.io/ai21.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
+      "https://cdn.brandfetch.io/mistral.ai/w/400/h/400?c=1idjQoo38323pC02ZXr"
+    ]
+  },
+  {
+    id: "lecture-6",
+    title: "Post-Training Fundamentals",
+    description: "A technical lecture on the various techniques for tuning LLMs.",
+    topics: [
+      "Extended pre-training (DAPT, TAPT)",
+      "Supervised tuning (SFT, PEFT)",
+      "RL-based tuning (DPO, PPO, GRPO)",
+      "Compressions (KD, PTQ, QAT)",
+    ],
+    lecturer: "Oded Ovadia",
+    icon: <Settings className="w-6 h-6" />,
+    level: "intermediate",
+  },
+  {
+    id: "lecture-7",
+    title: "Supercharging LLMs with Knowledge",
+    description: "Understanding embeddings, semantic search, RAG, and how to augment LLMs with external knowledge.",
     topics: [
       "Embeddings fundamentals & frameworks",
       "Keywords-based vs. vector-based search",
@@ -171,8 +175,7 @@ const lectures: Lecture[] = [
       "RAG best practices: indexing, optimizing recall/precision",
       "RAG evaluation methodologies",
     ],
-    lecturer: "Expert Lecturers",
-    icon: <Search className="w-6 h-6" />, // Used Search icon
+    icon: <Search className="w-6 h-6" />,
     level: "intermediate",
     techLogos: [
       "https://cdn.brandfetch.io/pinecone.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
@@ -182,70 +185,54 @@ const lectures: Lecture[] = [
     ]
   },
   {
-    id: "lecture-8", // Merged 10 & 11
-    title: "Compound AI Systems & Evaluation",
-    description: "Building complex AI systems using agents and frameworks, and evaluating their performance.",
+    id: "lecture-8",
+    title: "From Models to Systems to Agents",
+    description: "The transformation from standalone models to agentic AI systems.",
     topics: [
-      "AI agents and orchestrators",
-      "Tools, routers, chains and workflows",
-      "Prompt engineering best practices",
-      "Performance metrics (FLOPs, IO, utilization)",
-      "Accuracy metrics & benchmarks",
-      "Leaderboards",
+      "Prompt engineering evolution: ReAct, Chain-of-Thought, Self-Consistency",
+      "Chains and workflows: sequential, branching, and parallel task pipelines",
+      "The agentic toolkit: function calling, tools, routers, memory",
+      "AI orchestration frameworks: LangChain and modular systems",
+      "Autonomous agents: goal-driven, self-directed reasoning and action",
     ],
-    lecturer: "Expert Lecturers",
-    icon: <Code2 className="w-6 h-6" />, // Used Code2 icon
+    lecturer: "Vlad Luzin (Co-founder & CTO, Thenvoi)",
+    icon: <Code2 className="w-6 h-6" />,
     level: "intermediate",
     techLogos: [
-      "https://cdn.brandfetch.io/autogen.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/crewai.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/mlcommons.org/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/benchmark.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
+      "https://cdn.brandfetch.io/langchain.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
     ]
   },
   {
-    id: "lecture-9", // Renumbered from 12
-    title: "AI DevOps & Deployment",
-    description: "Managing infrastructure and deployment for AI systems",
+    id: "lecture-9",
+    title: "Evaluating GenAI Systems",
+    description: "A technical lecture on the various techniques for evaluating LLMs.",
     topics: [
-      "Kubernetes (K8s)",
-      "Workflow orchestration",
-      "Continuous integration/deployment (CI/CD)",
-      "Infrastructure management",
-      "Scalability considerations",
-      "Resource allocation and auto-scaling strategies",
+      "Predictive vs Generative evaluation metrics",
+      "Accuracy metrics (Perplexity, BLEU/ROUGE, Bert-score, LLM as a Judge)",
+      "GenAI metrics (Fluency, Factuality, Coherence, Bias)",
+      "GenAI benchmarks (MMLU, HellaSwag, etc.)",
+      "Guardrails",
+      "Leaderboards and how to navigate them",
     ],
-    icon: <Server className="w-6 h-6" />,
+    lecturer: "Dr. Elad Levi (Plurai)",
+    icon: <Sparkles className="w-6 h-6" />,
     level: "intermediate",
-    techLogos: [
-      "https://cdn.brandfetch.io/kubernetes.io/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/docker.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
   },
   {
-    id: "lecture-10", // Renumbered from 13-14
-    title: "State of the Art in AI & Final Challenge",
-    description: "Exploring cutting-edge developments in AI and applying knowledge to real-world problems",
+    id: "lecture-10",
+    title: "The Future Directions of AI Research",
+    description: "A forward-looking lecture on emerging paradigms and open research questions in AI.",
     topics: [
-      "State of Image / Video generation",
-      "Latest advancements in multimodal AI",
-      "Emerging applications and use cases",
-      "Final Challenge: Solving real-world AI challenges from industry partners",
-      "Team-based project work with mentorship from industry experts",
-      "Final presentations and evaluation"
+      "Emerging paradigms in AI",
+      "Open research questions shaping the next decade of AI",
     ],
-    lecturer: "Industry experts",
+    lecturer: "Prof. Gal Chechik (NVIDIA & BIU)",
     icon: <Sparkles className="w-6 h-6" />,
     level: "advanced",
-    techLogos: [
-      "https://cdn.brandfetch.io/midjourney.com/w/400/h/400?c=1idjQoo38323pC02ZXr",
-      "https://cdn.brandfetch.io/runwayml.com/w/400/h/400?c=1idjQoo38323pC02ZXr"
-    ]
   },
 ]
 
 export function TechnicalCurriculum() {
-  // Group lectures into sets of 2 for the tabs (5 tabs total)
   const lectureGroups = [
     lectures.slice(0, 2),
     lectures.slice(2, 4),
@@ -285,7 +272,7 @@ export function TechnicalCurriculum() {
             <GraduationCap className="w-4 h-4" /> 5-6
           </TabsTrigger>
           <TabsTrigger value="group-4" className="flex items-center gap-2">
-            <Cpu className="w-4 h-4" /> 7-8 
+            <Cpu className="w-4 h-4" /> 7-8
           </TabsTrigger>
           <TabsTrigger value="group-5" className="flex items-center gap-2">
             <Rocket className="w-4 h-4" /> 9-10
@@ -338,18 +325,6 @@ export function TechnicalCurriculum() {
                       </li>
                     ))}
                   </ul>
-                  {/* <h4 className="text-sm font-medium text-muted-foreground mb-3">Key Resources</h4>
-                  <div className="grid gap-3 md:grid-cols-2">
-                    {preMaterials.resources.map((resource, i) => (
-                      <div key={i} className="p-3 border rounded-lg hover:bg-primary/5 transition-colors">
-                        <h5 className="font-medium text-sm">{resource.name}</h5>
-                        <p className="text-xs text-muted-foreground mb-2">{resource.description}</p>
-                        <a href={resource.url} target="_blank" rel="noopener noreferrer" className="text-xs text-primary hover:underline">
-                          Access resource →
-                        </a>
-                      </div>
-                    ))}
-                  </div> */}
                 </div>
               </div>
             </CardContent>
@@ -385,7 +360,7 @@ export function TechnicalCurriculum() {
                           <span className="text-muted-foreground">Lecturer:</span> {lecture.lecturer}
                         </p>
                       )}
-                      {lecture.techLogos && (
+                      {lecture.techLogos && lecture.techLogos.length > 0 && (
                         <div className="flex gap-2 mt-4">
                           {lecture.techLogos.map((logo, i) => (
                             <div key={i} className="w-8 h-8 relative">
@@ -412,27 +387,6 @@ export function TechnicalCurriculum() {
                           </li>
                         ))}
                       </ul>
-                      {lecture.id === "lecture-10" && (
-                        <div className="mt-6 p-4 bg-primary/10 rounded-lg">
-                          <div className="flex items-center gap-3 mb-2">
-                            <Trophy className="h-5 w-5 text-primary" />
-                            <h4 className="font-medium">Final Challenge</h4>
-                          </div>
-                          <p className="text-sm mb-2">
-                            Apply everything you've learned to solve real-world AI challenges sourced from our industry partners. 
-                            Work in teams with mentorship from industry experts, and present your solutions to a panel of judges.
-                          </p>
-                          {/* <p className="text-sm font-medium">
-                            Past challenges have included:
-                          </p>
-                          <ul className="mt-2 space-y-1">
-                            <li className="text-sm">• Building multimodal AI systems for healthcare diagnosis</li>
-                            <li className="text-sm">• Developing privacy-preserving ML pipelines for financial data</li>
-                            <li className="text-sm">• Creating adaptive AI tutoring systems for education</li>
-                            <li className="text-sm">• Designing AI systems for sustainable energy optimization</li>
-                          </ul> */}
-                        </div>
-                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -444,4 +398,3 @@ export function TechnicalCurriculum() {
     </div>
   )
 }
-
