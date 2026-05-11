@@ -12,7 +12,7 @@ import {
 import { ChevronDown } from "lucide-react"
 
 interface NavbarProps {
-  activePage?: "home" | "tracks" | "team"
+  activePage?: "home" | "tracks" | "team" | "office-hours"
 }
 
 export function Navbar({ activePage }: NavbarProps) {
@@ -41,6 +41,14 @@ export function Navbar({ activePage }: NavbarProps) {
           >
             Tracks
           </Link>
+
+          <Link 
+            href="/office-hours" 
+            className={`text-base font-medium transition-colors hover:text-primary ${activePage === "office-hours" ? "text-primary" : ""}`}
+          >
+            Office Hours
+          </Link>
+          
           {/* <DropdownMenu>
             <DropdownMenuTrigger className={`text-base font-medium transition-colors hover:text-primary flex items-center gap-1 ${activePage === "team" ? "text-primary" : ""}`}>
               Community
