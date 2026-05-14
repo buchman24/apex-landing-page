@@ -18,7 +18,7 @@ const featureCards = [
   {
     title: "Self-Sustaining Model",
     icon: Globe,
-    description: "Corporate partnerships and create a flywheel that funds future cohorts."
+    description: "Corporate partnerships create a flywheel that funds future cohorts."
   }
 ]
 
