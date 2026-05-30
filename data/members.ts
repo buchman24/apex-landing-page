@@ -104,7 +104,7 @@ export const alumniMembers: Alumni[] = [
   { id: "ron_galay", name: "Ron Galay", description: "Senior Software Engineer at Datadog", imageSrc: "/alumni/ron_g.jpeg", linkedinUrl: "https://www.linkedin.com/in/ron-galay-0b451662", cohort: "Cohort 2" },
   { id: "guy_yoshpe", name: "Guy Yoshpe", description: "Software Engineer at Wiz", imageSrc: "/alumni/guy_y.jpeg", linkedinUrl: "https://www.linkedin.com/in/yoshpe", cohort: "Cohort 2" },
   { id: "michal_ran_shchory", name: "Michal Ran Shchory", description: "Software & Algorithms at Protai", imageSrc: "/alumni/michal_r.jpeg", linkedinUrl: "https://www.linkedin.com/in/michal-ran", cohort: "Cohort 2" },
-  { id: "hila_shmuel", name: "Hila Shmuel", description: "Project Manager & Web Team Lead at Matrix", imageSrc: "/alumni/hila_s.png", linkedinUrl: "https://www.linkedin.com/in/hilashmuel/", cohort: "Cohort 2" },
+  { id: "hila_shmuel", name: "Hila Shmuel", description: "Co-founder of Cabinet", imageSrc: "/alumni/hila_s.png", linkedinUrl: "https://www.linkedin.com/in/hilashmuel/", cohort: "Cohort 2" },
   { id: "ido_kazma", name: "Ido Kazma", description: "Algo Team Lead at Q.ai", imageSrc: "/alumni/ido_k.png", linkedinUrl: "https://www.linkedin.com/in/idokazma", cohort: "Cohort 2" },
   { id: "yuri_shapira", name: "Yuri Shapira", description: "Principal Researcher at PureSec", imageSrc: "/alumni/yuri_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/yurishapira", cohort: "Cohort 2" },
   { id: "eyal_horowicz", name: "Eyal Horowicz", description: "Senior Software Engineer at Claroty", imageSrc: "/alumni/eyal_h.jpeg", linkedinUrl: "https://www.linkedin.com/in/eyal-horowicz", cohort: "Cohort 2" },
