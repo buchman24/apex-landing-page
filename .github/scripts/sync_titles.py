@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
-"""Sync APEX community member job titles from Dex CRM to data/members.ts"""
+"""Sync APEX community member job titles from Dex CRM to data/members.ts.
+Only updates entries inside the communityMembers array."""
 
 import requests
 import re
 import os
-import sys
 
 DEX_API_KEY = os.environ['DEX_API_KEY']
 FILE_PATH = 'data/members.ts'
@@ -77,23 +77,34 @@ def main():
     lines = content.split('\n')
     updated_lines = []
 
+    # Track whether we are inside the communityMembers array
+    in_community = False
+
     for line in lines:
-        desc_match = re.search(r'description:\s*"([^"]*)"', line)
-        linkedin_match = re.search(r'linkedinUrl:\s*"([^"]*)"', line)
+        # Detect array boundaries
+        if 'communityMembers' in line and '=' in line and '[' in line:
+            in_community = True
+        elif in_community and re.match(r'^\s*\];', line):
+            in_community = False
 
-        if desc_match and linkedin_match:
-            old_desc = desc_match.group(1)
-            linkedin_url = linkedin_match.group(1)
-            normalized = normalize_linkedin_url(linkedin_url)
-            new_title = linkedin_map.get(normalized)
+        # Only update lines inside communityMembers
+        if in_community:
+            desc_match = re.search(r'description:\s*"([^"]*)"', line)
+            linkedin_match = re.search(r'linkedinUrl:\s*"([^"]*)"', line)
 
-            if new_title and new_title != old_desc:
-                changes.append({
-                    'url': linkedin_url,
-                    'old': old_desc,
-                    'new': new_title
-                })
-                line = line[:desc_match.start(1)] + new_title + line[desc_match.end(1):]
+            if desc_match and linkedin_match:
+                old_desc = desc_match.group(1)
+                linkedin_url = linkedin_match.group(1)
+                normalized = normalize_linkedin_url(linkedin_url)
+                new_title = linkedin_map.get(normalized)
+
+                if new_title and new_title != old_desc:
+                    changes.append({
+                        'url': linkedin_url,
+                        'old': old_desc,
+                        'new': new_title
+                    })
+                    line = line[:desc_match.start(1)] + new_title + line[desc_match.end(1):]
 
         updated_lines.append(line)
 
