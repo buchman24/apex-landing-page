@@ -88,6 +88,7 @@ export const communityMembers: Member[] = [
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" },
 
+  { id: "check", name: "Check", description: "CEO of Apex", imageSrc: "/team/check.jpg", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228" },
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
