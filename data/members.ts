@@ -63,6 +63,11 @@ export const communityMembers: Member[] = [
   // { id: "david_d", name: "Daniel Drizin", description: "VP R&D at Paragon", imageSrc: "/team/david_drizin.png", linkedinUrl: "https://www.linkedin.com/in/ddrizin/" },
   // { id: "adi_s", name: "Adi Sharabani", description: "Serial founder, Snyk", imageSrc: "/team/adi_sharabani.jfif", linkedinUrl: "https://www.linkedin.com/in/adisharabani/" },
   // { id: "shachar_c", name: "Shachar Cohen", description: "Software | Management | Talpiot", imageSrc: "/team/shachar.webp", linkedinUrl: "https://www.linkedin.com/in/shachar-cohen-480b86205/" },
+  
+  { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
+  { id: "omri_sela", name: "Omri Sela", description: "Head of GTM - Plurai", imageSrc: "/team/omri_sela.jpg", linkedinUrl: "https://www.linkedin.com/in/omri-s/" },
+  { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
+  { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
   { id: "dan_p", name: "Dan Padnos", description: "Head of AI at Novee Security", imageSrc: "/team/dan_padnos.jpeg", linkedinUrl: "https://www.linkedin.com/in/dan-padnos/?originalSubdomain=il" },
   { id: "victor_s", name: "Victor Shafran", description: "Builder at Nebius", imageSrc: "/team/victor_s.jpg", linkedinUrl: "https://www.linkedin.com/in/victor-shafran-88b63b3/" },
   { id: "roy_s", name: "Roy Schroy", description: "Senior Director of R&D at Crusoe", imageSrc: "/team/roy_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-shchory-266578164/" },
@@ -86,11 +91,7 @@ export const communityMembers: Member[] = [
   // { id: "benny_m", name: "Benny Meir", description: "DevOps Ninja", imageSrc: "/team/benny_meir.png", linkedinUrl: "" },
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
-  { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" },
-  { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
-  { id: "omri_sela", name: "Omri Sela", description: "Head of GTM - Plurai", imageSrc: "/team/omri_sela.jpg", linkedinUrl: "https://www.linkedin.com/in/omri-s/" },
-  { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
-  { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
+  { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" }
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
