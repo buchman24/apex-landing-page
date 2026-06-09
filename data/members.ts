@@ -90,6 +90,7 @@ export const communityMembers: Member[] = [
   { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
   { id: "omri_sela", name: "Omri Sela", description: "Head of GTM - Plurai", imageSrc: "/team/omri_sela.jpg", linkedinUrl: "https://www.linkedin.com/in/omri-s/" },
   { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
+  { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
