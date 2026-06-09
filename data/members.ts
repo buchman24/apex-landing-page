@@ -87,7 +87,6 @@ export const communityMembers: Member[] = [
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" },
-
   { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
 ];
 
