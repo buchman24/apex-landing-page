@@ -18,7 +18,8 @@ import {
   TracksSection,
   PricingSection,
   CTASection,
-  QASection
+  QASection,
+  HumanInfrastructureSection
 } from "@/components/sections"
 import { Community, AdvisorsAndCommunity } from "@/components/community"
 
@@ -33,21 +34,20 @@ export default function Home() {
           self-contained components so they're easy to reshuffle — confirm visually.
         */}
         <HeroSection />
-        {/* Core team near the top, immediately followed by "Why We're Building APEX" */}
+        {/* Core team first */}
         <Community />
+        {/* "Why We're Building APEX" right after the core team */}
         <AboutSection />
         <VisionSection />
-        {/*
-          TODO (Task 2 — BLOCKED): the human-infrastructure copy block goes here,
-          pending Mor's design and confirmation of what "the model" refers to.
-        */}
+        {/* Task 2: human-infrastructure framing + "The Human AI Stack" model (per Mor's June 12 design) */}
+        <HumanInfrastructureSection />
         <FeaturesSection />
         <TracksSection />
         <LocationSection />
         {/* <PricingSection /> */}
         <QASection />
         <CTASection />
-        {/* At the very end: all the people + partner logos */}
+        {/* At the very end: all the people (Advisory Board + Community) and partner logos */}
         <AdvisorsAndCommunity />
         <PartnersSection />
       </main>
