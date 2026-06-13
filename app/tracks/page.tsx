@@ -246,9 +246,9 @@ export default function TracksPage() {
 
               <Card className="lg:col-span-2">
                 <CardHeader>
-                  <CardTitle>Curriculum Modules</CardTitle>
+                  <CardTitle>APEX Founders Sprint — 8-Week Curriculum</CardTitle>
                   <CardDescription>
-                    Designed to support founders through every phase of building and scaling their company
+                    Designed to take Israel&apos;s most elite technical talent from idea to AI-first founder
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
