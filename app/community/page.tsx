@@ -48,7 +48,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
                   <Button asChild variant="outline" size="lg">
-                    <Link href="mailto:careers@apex-ai.org">Contact Us</Link>
+                    <Link href="mailto:team@apex.org.il">Contact Us</Link>
                   </Button>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function TeamPage() {
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
                 <Button asChild size="lg" variant="secondary">
-                  <Link href="/apply">Apply to APEX</Link>
+                  <Link href="mailto:team@apex.org.il?subject=APEX%20Application">Apply to APEX</Link>
                 </Button>
                 <Button asChild size="lg" variant="secondary">
                   <Link href="/tracks">Explore Our Tracks</Link>

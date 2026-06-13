@@ -18,10 +18,10 @@ export function CTASection() {
             </div>
             <div className="flex flex-col gap-2 sm:flex-row justify-center flex-wrap">
               <Button asChild size="lg" variant="secondary">
-                <Link href="/apply">Apply to Architect Track</Link>
+                <Link href="mailto:team@apex.org.il?subject=APEX%20Architect%20Track%20Application">Apply to Architect Track</Link>
               </Button>
               <Button asChild size="lg" variant="secondary">
-                <Link href="https://forms.gle/5Zi6HRqKRoNuzTEH7" target="_blank" rel="noopener noreferrer">Apply to Founder Track</Link>
+                <Link href="mailto:team@apex.org.il?subject=APEX%20Founder%20Track%20Application">Apply to Founder Track</Link>
               </Button>
             </div>
           </div>

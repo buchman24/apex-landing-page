@@ -50,7 +50,7 @@ export function PricingSection() {
             </CardContent>
             <CardFooter>
               <Button asChild className="w-full">
-                <Link href="/apply">Apply Now</Link>
+                <Link href="mailto:team@apex.org.il?subject=APEX%20Application">Apply Now</Link>
               </Button>
             </CardFooter>
           </Card>

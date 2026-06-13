@@ -14,6 +14,9 @@ export interface Alumni {
   imageSrc: string;
   linkedinUrl: string;
   cohort?: string;
+  // Which APEX track the alum went through. Defaults to "architect" when unset
+  // (every current alum is an Architect-track graduate). Tag Founders explicitly.
+  track?: "founder" | "architect";
 }
 
 export const advisoryBoardMembers: Member[] = [

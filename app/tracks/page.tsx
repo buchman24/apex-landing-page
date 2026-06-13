@@ -152,7 +152,7 @@ export default function TracksPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full">
-                    <Link href="/apply">Apply to Architect Track</Link>
+                    <Link href="mailto:team@apex.org.il?subject=APEX%20Architect%20Track%20Application">Apply to Architect Track</Link>
                   </Button>
                 </CardFooter>
               </Card>
@@ -239,7 +239,7 @@ export default function TracksPage() {
                 </CardContent>
                 <CardFooter>
                   <Button asChild className="w-full">
-                    <Link href="https://forms.gle/5Zi6HRqKRoNuzTEH7" target="_blank" rel="noopener noreferrer">Apply to Founder Track</Link>
+                    <Link href="mailto:team@apex.org.il?subject=APEX%20Founder%20Track%20Application">Apply to Founder Track</Link>
                   </Button>
                 </CardFooter>
               </Card>
