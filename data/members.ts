@@ -63,7 +63,8 @@ export const communityMembers: Member[] = [
   // { id: "david_d", name: "Daniel Drizin", description: "VP R&D at Paragon", imageSrc: "/team/david_drizin.png", linkedinUrl: "https://www.linkedin.com/in/ddrizin/" },
   // { id: "adi_s", name: "Adi Sharabani", description: "Serial founder, Snyk", imageSrc: "/team/adi_sharabani.jfif", linkedinUrl: "https://www.linkedin.com/in/adisharabani/" },
   // { id: "shachar_c", name: "Shachar Cohen", description: "Software | Management | Talpiot", imageSrc: "/team/shachar.webp", linkedinUrl: "https://www.linkedin.com/in/shachar-cohen-480b86205/" },
-  
+  { id: "avichay_karpel", name: "Avichay Karpel", description: "Global Director Connected Cameras at General Motors", imageSrc: "/team/avichay_karpel.jpeg", linkedinUrl: "https://www.linkedin.com/in/avichay-karpel-92895096/" },
+
   { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
   { id: "omri_sela", name: "Omri Sela", description: "Head of GTM - Plurai", imageSrc: "/team/omri_sela.jpg", linkedinUrl: "https://www.linkedin.com/in/omri-s/" },
   { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
@@ -92,7 +93,6 @@ export const communityMembers: Member[] = [
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" }
-  { id: "avichay_karpel", name: "Avichay Karpel", description: "Global Director Connected Cameras at General Motors", imageSrc: "/team/avichay_karpel.jpeg", linkedinUrl: "https://www.linkedin.com/in/avichay-karpel-92895096/" },
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
