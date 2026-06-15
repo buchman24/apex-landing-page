@@ -92,6 +92,7 @@ export const communityMembers: Member[] = [
   { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" }
+  { id: "avichay_karpel", name: "Avichay Karpel", description: "Global Director Connected Cameras at General Motors", imageSrc: "/team/avichay_karpel.jpeg", linkedinUrl: "https://www.linkedin.com/in/avichay-karpel-92895096/" },
 ];
 
 export const allMembers: Member[] = [...foundingTeamMembers, ...communityMembers];
