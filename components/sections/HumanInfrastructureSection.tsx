@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image"
+
 export function HumanInfrastructureSection() {
   return (
     <section
@@ -18,6 +20,17 @@ export function HumanInfrastructureSection() {
             doubling down on AI &mdash; ensuring that Israel&apos;s most exceptional talent
             doesn&apos;t just keep up, but leads.
           </p>
+        </div>
+
+        {/* Real cohort photo — the human infrastructure, in the flesh */}
+        <div className="mt-12 md:mt-16 max-w-5xl mx-auto">
+          <Image
+            src="/apex_groupphoto.jpg"
+            width={1600}
+            height={900}
+            alt="The APEX cohort — Israel's elite AI builders and founders"
+            className="rounded-xl object-cover w-full max-h-[460px] shadow-sm"
+          />
         </div>
 
         {/* The Model */}
@@ -42,7 +55,9 @@ export function HumanInfrastructureSection() {
           </div>
 
           <div className="flex justify-center">
-            <HumanAIStackDiagram />
+            <div className="w-full max-w-[520px] rounded-2xl bg-white p-4 sm:p-6 shadow-sm">
+              <HumanAIStackDiagram />
+            </div>
           </div>
         </div>
       </div>
@@ -51,74 +66,86 @@ export function HumanInfrastructureSection() {
 }
 
 function HumanAIStackDiagram() {
-  // Three overlapping circles (r = 150) converging on APEX at the centroid.
-  const r = 150;
-  const tech = { cx: 280, cy: 200 };   // top
-  const army = { cx: 205, cy: 320 };   // bottom-left
-  const academia = { cx: 355, cy: 320 }; // bottom-right
-  const center = { cx: 280, cy: 280 };
+  // Three overlapping circles in a classic 3-set Venn, converging on the APEX core.
+  const r = 180;
+  const tech = { cx: 450, cy: 290 };      // top
+  const army = { cx: 360, cy: 455 };      // bottom-left
+  const academia = { cx: 540, cy: 455 };  // bottom-right
+
+  const circleFill = '#e9f1fc';
+  const circleStroke = '#1f2a44';
+  const titleBlue = '#2e8bf5';
+  const navy = '#0f1e3d';
+  const coreBlue = '#1f7ae0';
 
   return (
     <svg
-      viewBox="0 0 560 540"
-      className="w-full max-w-[480px] h-auto"
+      viewBox="-20 10 940 650"
+      className="w-full h-auto"
       role="img"
       aria-label="The Human AI Stack: Army, Tech Ventures, and Academia converging on APEX"
     >
       {/* Circles */}
-      <g className="fill-primary/10 stroke-primary/40" strokeWidth={1.5}>
+      <g fill={circleFill} fillOpacity={0.75} stroke={circleStroke} strokeWidth={1.5}>
         <circle cx={tech.cx} cy={tech.cy} r={r} />
         <circle cx={army.cx} cy={army.cy} r={r} />
         <circle cx={academia.cx} cy={academia.cy} r={r} />
       </g>
 
-      {/* APEX core */}
-      <circle cx={center.cx} cy={center.cy} r={58} className="fill-primary" />
-      {/* Simple mountain emblem */}
+      {/* APEX core — rounded downward triangle (Reuleaux) over the central intersection */}
       <path
-        d="M280 250 L300 285 L292 285 L280 268 L268 285 L260 285 Z"
-        className="fill-primary-foreground"
+        d="M388,372 A123 123 0 0 1 512,372 A123 123 0 0 1 450,478 A123 123 0 0 1 388,372 Z"
+        fill={coreBlue}
       />
+      {/* Mountain emblem */}
+      <path
+        d="M412,408 L450,360 L488,408 L470,408 L450,382 L430,408 Z"
+        fill="#ffffff"
+      />
+      <rect x={406} y={414} width={88} height={2.5} fill="#ffffff" opacity={0.9} />
       <text
-        x={center.cx}
-        y={center.cy + 26}
+        x={450}
+        y={452}
         textAnchor="middle"
-        className="fill-primary-foreground"
-        style={{ fontSize: 22, fontWeight: 700, letterSpacing: '0.05em' }}
+        fill="#ffffff"
+        style={{ fontSize: 30, fontWeight: 800, letterSpacing: '0.06em' }}
       >
         APEX
       </text>
 
       {/* Labels */}
       <g textAnchor="middle">
-        <text x={tech.cx} y={70} className="fill-primary" style={{ fontSize: 20, fontWeight: 700 }}>
+        <text x={450} y={52} fill={titleBlue} style={{ fontSize: 30, fontWeight: 800 }}>
           TECH VENTURES
         </text>
-        <text x={tech.cx} y={92} className="fill-foreground" style={{ fontSize: 14, fontWeight: 600 }}>
-          Rapid scaling &amp; deployment
+        <text x={450} y={84} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
+          Rapid scaling &amp;
+        </text>
+        <text x={450} y={110} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
+          deployment
         </text>
       </g>
 
       <g textAnchor="middle">
-        <text x={95} y={460} className="fill-primary" style={{ fontSize: 20, fontWeight: 700 }}>
+        <text x={95} y={470} fill={titleBlue} style={{ fontSize: 30, fontWeight: 800 }}>
           ARMY
         </text>
-        <text x={95} y={482} className="fill-foreground" style={{ fontSize: 14, fontWeight: 600 }}>
+        <text x={95} y={502} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
           Top 0.1%
         </text>
-        <text x={95} y={500} className="fill-foreground" style={{ fontSize: 14, fontWeight: 600 }}>
+        <text x={95} y={528} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
           Technical Genius
         </text>
       </g>
 
       <g textAnchor="middle">
-        <text x={465} y={460} className="fill-primary" style={{ fontSize: 20, fontWeight: 700 }}>
+        <text x={805} y={478} fill={titleBlue} style={{ fontSize: 30, fontWeight: 800 }}>
           ACADEMIA
         </text>
-        <text x={465} y={482} className="fill-foreground" style={{ fontSize: 14, fontWeight: 600 }}>
+        <text x={805} y={510} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
           Foundational
         </text>
-        <text x={465} y={500} className="fill-foreground" style={{ fontSize: 14, fontWeight: 600 }}>
+        <text x={805} y={536} fill={navy} style={{ fontSize: 22, fontWeight: 700 }}>
           AI Research
         </text>
       </g>

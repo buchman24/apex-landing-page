@@ -1,5 +1,6 @@
 'use client';
 
+import Image from "next/image"
 // import { motion } from "framer-motion"
 
 export function AboutSection() {
@@ -23,7 +24,17 @@ export function AboutSection() {
             </p>
           </div>
         </div>
-        
+
+        <div className="mx-auto max-w-4xl mt-12">
+          <Image
+            src="/david-goliath.jpg"
+            width={1456}
+            height={816}
+            alt="David and Goliath — the few, the determined, outmatching the giant"
+            className="rounded-xl object-cover w-full shadow-sm"
+          />
+        </div>
+
         <div className="mx-auto max-w-5xl py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[

@@ -34,11 +34,12 @@ export function HeroSection() {
 
           <div className="flex items-center justify-center">
             <Image
-              src="/apex_groupphoto.jpg"
-              width={900}
-              height={900}
-              alt="APEX: Future of AI meets Israeli Edge"
-              className="rounded-xl object-contain"
+              src="/apex-pioneers.jpg"
+              width={1000}
+              height={562}
+              alt="APEX pioneers — builders and researchers shaping Israel's AI future"
+              className="rounded-xl object-cover w-full"
+              priority
             />
           </div>
         </div>
