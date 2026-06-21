@@ -34,7 +34,7 @@ export const foundingTeamMembers: Member[] = [
   { id: "amit", name: "Amit Buchman - Lead", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
   { id: "roy", name: "Roy Nissim - Champion Talpiot", description: "2x Founder | PhD", imageSrc: "/team/roy.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-nissim/", isFounder: true },
   { id: "ofek", name: "Ofek Censor - Champion of Elite Cyber Course", description: "CEO at Rosewood Systems", imageSrc: "/team/ofek.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofekc/", isFounder: true },
-  { id: "talya", name: "Talya Pines - Operations", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
+  { id: "dvir", name: "Dvir Maimon - Operations", description: "Operations at APEX", imageSrc: "/team/dvir_maimon.jpeg", linkedinUrl: "https://www.linkedin.com/in/dvir-maimon-051982338/" },
 
 ];
 
@@ -72,6 +72,7 @@ export const communityMembers: Member[] = [
   { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
   { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
   { id: "dan_p", name: "Dan Padnos", description: "Head of AI at Novee Security", imageSrc: "/team/dan_padnos.jpeg", linkedinUrl: "https://www.linkedin.com/in/dan-padnos/?originalSubdomain=il" },
+  { id: "talya", name: "Talya Pines", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
   { id: "victor_s", name: "Victor Shafran", description: "Builder at Nebius", imageSrc: "/team/victor_s.jpg", linkedinUrl: "https://www.linkedin.com/in/victor-shafran-88b63b3/" },
   { id: "roy_s", name: "Roy Schroy", description: "Senior Director of R&D at Crusoe", imageSrc: "/team/roy_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-shchory-266578164/" },
 
