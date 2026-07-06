@@ -118,7 +118,7 @@ export const alumniMembers: Alumni[] = [
   { id: "liran_markin", name: "Liran Markin", description: "CEO at Edwin", imageSrc: "/alumni/liran_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/liran-markin/", cohort: "Cohort 2" },
   { id: "mor_shemesh", name: "Mor Shemesh", description: "Founding Engineer at Stealth", imageSrc: "/alumni/mor_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/mor-shemesh-1bb04a155", cohort: "Cohort 2" },
   { id: "roy_moshe", name: "Roy Moshe", description: "CEO at Stealth", imageSrc: "/alumni/roy_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-moshe-0727b115b", cohort: "Cohort 2" },
-  { id: "michael_komraz", name: "Michael Komraz", description: "Director of Product Strategy at Snyk", imageSrc: "/alumni/michael_k.png", linkedinUrl: "https://www.linkedin.com/in/michael-komraz/", cohort: "Cohort 2" },
+  { id: "michael_komraz", name: "Michael Komraz", description: "Building something new | Ex-Snyk CTO Office", imageSrc: "/alumni/michael_k.png", linkedinUrl: "https://www.linkedin.com/in/michael-komraz/", cohort: "Cohort 2" },
   { id: "almog_zer", name: "Almog Zer", description: "R&D Group Lead at Stealth", imageSrc: "/alumni/almog_z.jpeg", linkedinUrl: "https://www.linkedin.com/in/almog-zer-865897118", cohort: "Cohort 2" },
   { id: "bar_matityahu", name: "Bar Matityahu", description: "Founder at Stealth", imageSrc: "/alumni/bar_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/bar-matityahu", cohort: "Cohort 2" },
   { id: "kfir_shoar", name: "Kfir Shoar", description: "Software Developer at Cyera", imageSrc: "/alumni/kfir_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/kfirshoar", cohort: "Cohort 2" },
