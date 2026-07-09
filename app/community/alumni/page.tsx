@@ -18,13 +18,15 @@ function AlumniCard({ alumni }: { alumni: Alumni }) {
         <CardTitle className="text-lg">{alumni.name}</CardTitle>
         {alumni.description && <CardDescription>{alumni.description}</CardDescription>}
       </CardHeader>
-      <CardFooter className="p-4 flex justify-start gap-3 pt-0 mt-auto">
-        <Link href={alumni.linkedinUrl} target="_blank" rel="noopener noreferrer">
-          <Button variant="ghost" size="icon" aria-label="LinkedIn">
-            <Linkedin className="h-5 w-5" />
-          </Button>
-        </Link>
-      </CardFooter>
+      {alumni.linkedinUrl && (
+        <CardFooter className="p-4 flex justify-start gap-3 pt-0 mt-auto">
+          <Link href={alumni.linkedinUrl} target="_blank" rel="noopener noreferrer">
+            <Button variant="ghost" size="icon" aria-label="LinkedIn">
+              <Linkedin className="h-5 w-5" />
+            </Button>
+          </Link>
+        </CardFooter>
+      )}
     </Card>
   )
 }
