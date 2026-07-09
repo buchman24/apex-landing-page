@@ -1,5 +1,5 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { ApplyDialog } from "@/components/apply-dialog"
 
 export function CTASection() {
   return (
@@ -17,12 +17,12 @@ export function CTASection() {
               </p>
             </div>
             <div className="flex flex-col gap-2 sm:flex-row justify-center flex-wrap">
-              <Button asChild size="lg" variant="secondary">
-                <Link href="mailto:team@apex.org.il?subject=APEX%20Architect%20Track%20Application">Apply to Architect Track</Link>
-              </Button>
-              <Button asChild size="lg" variant="secondary">
-                <Link href="mailto:team@apex.org.il?subject=APEX%20Founder%20Track%20Application">Apply to Founder Track</Link>
-              </Button>
+              <ApplyDialog defaultTrack="Architects">
+                <Button size="lg" variant="secondary">Apply to Architect Track</Button>
+              </ApplyDialog>
+              <ApplyDialog defaultTrack="Founders">
+                <Button size="lg" variant="secondary">Apply to Founder Track</Button>
+              </ApplyDialog>
             </div>
           </div>
         </div>

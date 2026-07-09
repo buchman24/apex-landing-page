@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -11,6 +10,7 @@ import Footer from "@/components/footer"
 import { CTASection } from "@/components/sections/CTASection"
 import { FounderQASection } from "@/components/sections/FounderQASection"
 import { ArchitectQASection } from "@/components/sections/ArchitectQASection"
+import { ApplyDialog } from "@/components/apply-dialog"
 
 export default function TracksPage() {
   return (
@@ -151,9 +151,9 @@ export default function TracksPage() {
                   <TechnicalCurriculum />
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full">
-                    <Link href="mailto:team@apex.org.il?subject=APEX%20Architect%20Track%20Application">Apply to Architect Track</Link>
-                  </Button>
+                  <ApplyDialog defaultTrack="Architects">
+                    <Button className="w-full">Apply to Architect Track</Button>
+                  </ApplyDialog>
                 </CardFooter>
               </Card>
             </div>
@@ -238,9 +238,9 @@ export default function TracksPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full">
-                    <Link href="mailto:team@apex.org.il?subject=APEX%20Founder%20Track%20Application">Apply to Founder Track</Link>
-                  </Button>
+                  <ApplyDialog defaultTrack="Founders">
+                    <Button className="w-full">Apply to Founder Track</Button>
+                  </ApplyDialog>
                 </CardFooter>
               </Card>
 
