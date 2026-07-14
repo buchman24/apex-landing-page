@@ -1,11 +1,10 @@
 import { NextResponse } from "next/server";
 
-// Applications from the track sign-up questionnaire land in the
-// "APEX Track Applications" Notion database. Configure via env:
-//   NOTION_TOKEN               - internal integration secret (starts with "ntn_"/"secret_")
-//   NOTION_APPLICATIONS_DB_ID  - the applications database id
-const NOTION_TOKEN = process.env.NOTION_TOKEN;
-const NOTION_DB_ID = process.env.NOTION_APPLICATIONS_DB_ID;
+// Track sign-up applications are appended to the "APEX Track Applications (Website)"
+// Google Sheet (in Apex's Drive) via a Google Apps Script web app bound to that sheet.
+// Configure via env:
+//   GOOGLE_APPS_SCRIPT_URL - the Apps Script web-app deployment URL (…/exec)
+const APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL;
 
 type ApplyBody = {
   name?: string;
@@ -37,38 +36,31 @@ export async function POST(request: Request) {
     }
     const trackName = track === "Founders" ? "Founders" : "Architects";
 
-    if (!NOTION_TOKEN || !NOTION_DB_ID) {
-      // Fail loudly in logs, but don't leak config state to the client.
-      console.error("Missing NOTION_TOKEN or NOTION_APPLICATIONS_DB_ID env var");
+    if (!APPS_SCRIPT_URL) {
+      console.error("Missing GOOGLE_APPS_SCRIPT_URL env var");
       return NextResponse.json(
         { error: "Applications are temporarily unavailable. Please try again later." },
         { status: 503 }
       );
     }
 
-    const properties: Record<string, unknown> = {
-      Name: { title: [{ text: { content: name } }] },
-      Email: { email },
-      "Track Interested": { select: { name: trackName } },
-      Status: { select: { name: "New" } },
-    };
-    if (linkedin) properties["LinkedIn Profile"] = { url: linkedin };
-    if (militaryTrack) properties["Military Track"] = { rich_text: [{ text: { content: militaryTrack } }] };
-    if (why) properties["Why"] = { rich_text: [{ text: { content: why } }] };
-
-    const resp = await fetch("https://api.notion.com/v1/pages", {
+    const resp = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${NOTION_TOKEN}`,
-        "Notion-Version": "2022-06-28",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ parent: { database_id: NOTION_DB_ID }, properties }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name,
+        email,
+        linkedin,
+        militaryTrack,
+        track: trackName,
+        why,
+      }),
+      redirect: "follow",
     });
 
     if (!resp.ok) {
       const detail = await resp.text();
-      console.error("Notion API error:", resp.status, detail);
+      console.error("Apps Script error:", resp.status, detail);
       return NextResponse.json(
         { error: "Something went wrong submitting your application. Please try again." },
         { status: 502 }
