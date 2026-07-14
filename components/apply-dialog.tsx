@@ -129,13 +129,14 @@ export function ApplyDialog({
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="apply-linkedin">LinkedIn profile</Label>
+                <Label htmlFor="apply-linkedin">LinkedIn profile *</Label>
                 <Input
                   id="apply-linkedin"
                   type="url"
                   placeholder="https://www.linkedin.com/in/…"
                   value={linkedin}
                   onChange={(e) => setLinkedin(e.target.value)}
+                  required
                 />
               </div>
 

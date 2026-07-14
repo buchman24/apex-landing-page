@@ -25,9 +25,9 @@ export async function POST(request: Request) {
     const track = (body.track || "").trim();
     const why = (body.why || "").trim();
 
-    if (!name || !email || !track) {
+    if (!name || !email || !track || !linkedin) {
       return NextResponse.json(
-        { error: "Name, email, and track are required." },
+        { error: "Name, email, LinkedIn profile, and track are required." },
         { status: 400 }
       );
     }
