@@ -181,5 +181,5 @@ export const alumniMembers: Alumni[] = [
   { id: "ofek_kirzner", name: "Ofek Kirzner", description: "Founder at Stealth", imageSrc: "/alumni/ofek_kirzner.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
   { id: "dor_tirosh", name: "Dor Tirosh", description: "Founder at Stealth", imageSrc: "/alumni/dor_tirosh.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
   { id: "eran_milo", name: "Eran Milo", description: "Founder at Stealth", imageSrc: "/alumni/eran_milo.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
-  { id: "orian_vakil", name: "Orian Vakil", description: "Founder at Stealth", imageSrc: "/placeholder-user.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "orian_vakil", name: "Orian Vakil", description: "Founder at Stealth", imageSrc: "/alumni/placeholder.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
 ];
