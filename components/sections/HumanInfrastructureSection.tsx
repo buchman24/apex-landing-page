@@ -17,7 +17,7 @@ export function HumanInfrastructureSection() {
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed font-light">
             In a time of war and an accelerating AI race, Israel cannot afford to fall behind.
             APEX is the external rails for the builders, researchers, and architects who are
-            doubling down on AI &mdash; ensuring that Israel&apos;s most exceptional talent
+            doubling down on AI - ensuring that Israel&apos;s most exceptional talent
             doesn&apos;t just keep up, but leads.
           </p>
         </div>
@@ -50,7 +50,7 @@ export function HumanInfrastructureSection() {
             </p>
             <p className="text-base md:text-lg font-medium text-foreground leading-relaxed">
               APEX brings exceptional talent together with the country&apos;s best builders and
-              researchers &mdash; ensuring Israel maintains its technological edge.
+              researchers - ensuring Israel maintains its technological edge.
             </p>
           </div>
 
