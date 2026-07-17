@@ -86,6 +86,18 @@ export default function AlumniPage() {
                 <AlumniGrid members={architects} />
               </TabsContent>
               <TabsContent value="founders">
+                <figure className="mb-12">
+                  <Image
+                    src="/founders-cohort.jpg"
+                    width={1800}
+                    height={855}
+                    alt="The APEX Founder Track cohort together on a Tel Aviv rooftop"
+                    className="rounded-xl object-cover w-full shadow-sm"
+                  />
+                  <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                    The Founder Track cohort — APEX Inception Sprint, Tel Aviv.
+                  </figcaption>
+                </figure>
                 <AlumniGrid members={founders} />
               </TabsContent>
             </Tabs>
