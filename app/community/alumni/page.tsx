@@ -83,6 +83,18 @@ export default function AlumniPage() {
                 <TabsTrigger value="founders">Founders</TabsTrigger>
               </TabsList>
               <TabsContent value="architects">
+                <figure className="mb-12">
+                  <Image
+                    src="/architects-cohort.jpg"
+                    width={1800}
+                    height={893}
+                    alt="The APEX Architect Track cohort together"
+                    className="rounded-xl object-cover w-full shadow-sm"
+                  />
+                  <figcaption className="mt-3 text-center text-sm text-muted-foreground">
+                    The Architect Track cohort — APEX.
+                  </figcaption>
+                </figure>
                 <AlumniGrid members={architects} />
               </TabsContent>
               <TabsContent value="founders">
