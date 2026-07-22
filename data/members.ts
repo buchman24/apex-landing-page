@@ -14,6 +14,9 @@ export interface Alumni {
   imageSrc: string;
   linkedinUrl: string;
   cohort?: string;
+  // Which APEX track the alum went through. Defaults to "architect" when unset
+  // (every current alum is an Architect-track graduate). Tag Founders explicitly.
+  track?: "founder" | "architect";
 }
 
 export const advisoryBoardMembers: Member[] = [
@@ -31,7 +34,7 @@ export const foundingTeamMembers: Member[] = [
   { id: "amit", name: "Amit Buchman - Lead", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
   { id: "roy", name: "Roy Nissim - Champion Talpiot", description: "2x Founder | PhD", imageSrc: "/team/roy.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-nissim/", isFounder: true },
   { id: "ofek", name: "Ofek Censor - Champion of Elite Cyber Course", description: "CEO at Rosewood Systems", imageSrc: "/team/ofek.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofekc/", isFounder: true },
-  { id: "talya", name: "Talya Pines - Operations", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
+  { id: "dvir", name: "Dvir Maimon - Operations", description: "Operations at APEX", imageSrc: "/team/dvir_maimon.jpeg", linkedinUrl: "https://www.linkedin.com/in/dvir-maimon-051982338/" },
 
 ];
 
@@ -46,30 +49,33 @@ export const communityMembers: Member[] = [
   // Additional Advisory Members
   // { id: "tom_h", name: "Tom Hoffen", description: "CTO and Co-Founder at Alta | AI Revenue Workforce", imageSrc: "/team/tom.png", linkedinUrl: "https://www.linkedin.com/in/tom-hoffen-8722b88a/" },
   { id: "seffi_c", name: "Seffi Cohen", description: "Postdoctoral Researcher at Harvard", imageSrc: "/team/seffi_cohen.jfif", linkedinUrl: "https://www.linkedin.com/in/seffi-cohen/" },
-  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" }, 
+  { id: "ryan_g", name: "Ryan Gity", description: "CEO at G2 Systems and Technologies", imageSrc: "/team/ryan_gity.jpeg", linkedinUrl: "https://www.linkedin.com/in/ryan-gity/" },
+
+  // Second row
+  { id: "danny_h", name: "Danny Harnik", description: "Senior Technical Staff Member (STSM) at IBM Research", imageSrc: "/team/danny.png", linkedinUrl: "https://www.linkedin.com/in/danny-harnik-19a95436/" },
+  { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
+  { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
+  { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
   { id: "itay_p", name: "Itai Perez", description: "VP Robotics at Bluewhite", imageSrc: "/team/itay_perez.jpeg", linkedinUrl: "https://www.linkedin.com/in/taio/" },
   { id: "yehoshua_c", name: "Yehoshua (Shuki) Cohen", description: "VP Data at AI21 Labs", imageSrc: "/alumni/Yehoshua Cohen.jpg", linkedinUrl: "https://www.linkedin.com/in/shuki-cohen/?originalSubdomain=il"},
-  {id: "amos_b", name: "Amos Bar Joseph", description: "CEO at getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
+  // {id: "amos_b", name: "Amos Bar Joseph", description: "CEO at getswan.com, Entrepreneur", imageSrc: "/team/amos.png", linkedinUrl: "https://www.linkedin.com/in/amos-bar-joseph/" },
   { id: "mark_m", name: "Mark Mendelman", description: "CTO at Highrise.ai", imageSrc: "/team/mark_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/mark-mendelman-a845991b/" },
   { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor at BIU", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
   { id: "ayal_b", name: "Ayal Baron", description: "CEO at TroupAI", imageSrc: "/team/ayal_baron.jpeg", linkedinUrl: "https://www.linkedin.com/in/ayalbaron/" },
   { id: "ofer_r", name: "Ofer Rozenberg", description: "Principal Engineer, AI Software Stack", imageSrc: "/team/ofer_rozenberg.jpeg", linkedinUrl: "https://www.linkedin.com/in/oferrosenberg/" },
   { id: "amos_y", name: "Amos Yoffe", description: "Director of Engineering at Cisco Foundation AI", imageSrc: "/team/amos_yoffe.jpeg", linkedinUrl: "https://www.linkedin.com/in/amosyoffe/" },
-  { id: "ori_s", name: "Ori Striechman", description: "VP Research at Cyberillium | Investor", imageSrc: "/team/ori_striechman.jpeg", linkedinUrl: "https://www.linkedin.com/in/ori-striechman/" },
+  // { id: "ori_s", name: "Ori Striechman", description: "VP Research at Cyberillium | Investor", imageSrc: "/team/ori_striechman.jpeg", linkedinUrl: "https://www.linkedin.com/in/ori-striechman/" },
   // { id: "shahar_l", name: "Shahar Lutati", description: "Head of Research at Dream Security", imageSrc: "/team/shahar_lutati.jpeg", linkedinUrl: "https://www.linkedin.com/in/shahar-lutati-4b4863118/" },
   { id: "philip_t", name: "Philip Tannor", description: "CEO at Deepchecks, Entrepreneur", imageSrc: "/team/phillip.png", linkedinUrl: "https://www.linkedin.com/in/philip-tannor-a6a910b7/" },
   // { id: "nir_y", name: "Nir Yaron", description: "Chief of Staff @ Ministry of Finance | Talpiot Alum | Ex. Cyber @ IDF", imageSrc: "/team/nir.png", linkedinUrl: "https://www.linkedin.com/in/nir-yaron-886051241/" },
-  { id: "danny_h", name: "Danny Harnik", description: "Senior Technical Staff Member (STSM) at IBM Research", imageSrc: "/team/danny.png", linkedinUrl: "https://www.linkedin.com/in/danny-harnik-19a95436/" },
   // { id: "david_d", name: "Daniel Drizin", description: "VP R&D at Paragon", imageSrc: "/team/david_drizin.png", linkedinUrl: "https://www.linkedin.com/in/ddrizin/" },
   // { id: "adi_s", name: "Adi Sharabani", description: "Serial founder, Snyk", imageSrc: "/team/adi_sharabani.jfif", linkedinUrl: "https://www.linkedin.com/in/adisharabani/" },
   // { id: "shachar_c", name: "Shachar Cohen", description: "Software | Management | Talpiot", imageSrc: "/team/shachar.webp", linkedinUrl: "https://www.linkedin.com/in/shachar-cohen-480b86205/" },
   { id: "avichay_karpel", name: "Avichay Karpel", description: "Global Director Connected Cameras at General Motors", imageSrc: "/team/avichay_karpel.jpeg", linkedinUrl: "https://www.linkedin.com/in/avichay-karpel-92895096/" },
 
-  { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
   { id: "omri_sela", name: "Omri Sela", description: "Head of GTM - Plurai", imageSrc: "/team/omri_sela.jpg", linkedinUrl: "https://www.linkedin.com/in/omri-s/" },
-  { id: "adi_foksheneanu_gov", name: "Adi Foksheneanu Gov", description: "VP Revenue Marketing at wiz", imageSrc: "/team/adi_foksheneanu_gov.jpeg", linkedinUrl: "https://www.linkedin.com/in/adi-foksheneanu-gov-100a974/" },
-  { id: "_sapir_hadad", name: " Sapir Hadad", description: "Executive Director of AI, Fiverr Labs & Pysical AI", imageSrc: "/team/_sapir_hadad.jpeg", linkedinUrl: "https://www.linkedin.com/in/sapir-hadad-1410a1124/" },
   { id: "dan_p", name: "Dan Padnos", description: "Head of AI at Novee Security", imageSrc: "/team/dan_padnos.jpeg", linkedinUrl: "https://www.linkedin.com/in/dan-padnos/?originalSubdomain=il" },
+  { id: "talya", name: "Talya Pines", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
   { id: "victor_s", name: "Victor Shafran", description: "Builder at Nebius", imageSrc: "/team/victor_s.jpg", linkedinUrl: "https://www.linkedin.com/in/victor-shafran-88b63b3/" },
   { id: "roy_s", name: "Roy Schroy", description: "Senior Director of R&D at Crusoe", imageSrc: "/team/roy_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-shchory-266578164/" },
 
@@ -117,7 +123,7 @@ export const alumniMembers: Alumni[] = [
   { id: "lior_lev_tov", name: "Lior Lev Tov", description: "Software Engineer at Eon.io", imageSrc: "/alumni/lior_l.jpeg", linkedinUrl: "https://www.linkedin.com/in/liorlevtov", cohort: "Cohort 2" },
   { id: "liran_markin", name: "Liran Markin", description: "CEO at Edwin", imageSrc: "/alumni/liran_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/liran-markin/", cohort: "Cohort 2" },
   { id: "mor_shemesh", name: "Mor Shemesh", description: "Founding Engineer at Stealth", imageSrc: "/alumni/mor_s.jpeg", linkedinUrl: "https://www.linkedin.com/in/mor-shemesh-1bb04a155", cohort: "Cohort 2" },
-  { id: "roy_moshe", name: "Roy Moshe", description: "CEO at Stealth", imageSrc: "/alumni/roy_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-moshe-0727b115b", cohort: "Cohort 2" },
+  { id: "roy_moshe", name: "Roy Moshe", description: "CEO at Stealth", imageSrc: "/alumni/roy_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-moshe-0727b115b", cohort: "Cohort 2", track: "founder" },
   { id: "michael_komraz", name: "Michael Komraz", description: "Building something new | Ex-Snyk CTO Office", imageSrc: "/alumni/michael_k.png", linkedinUrl: "https://www.linkedin.com/in/michael-komraz/", cohort: "Cohort 2" },
   { id: "almog_zer", name: "Almog Zer", description: "R&D Group Lead at Stealth", imageSrc: "/alumni/almog_z.jpeg", linkedinUrl: "https://www.linkedin.com/in/almog-zer-865897118", cohort: "Cohort 2" },
   { id: "bar_matityahu", name: "Bar Matityahu", description: "Founder at Stealth", imageSrc: "/alumni/bar_m.jpeg", linkedinUrl: "https://www.linkedin.com/in/bar-matityahu", cohort: "Cohort 2" },
@@ -126,7 +132,7 @@ export const alumniMembers: Alumni[] = [
   { id: "jonathan_gilat", name: "Jonathan Gilat", description: "Co-Founder @ Medida | Talpiot, 8200 at Medida AI", imageSrc: "/alumni/jonathan_g.jpeg", linkedinUrl: "https://www.linkedin.com/in/jonathangilat", cohort: "Cohort 2" },
   { id: "tzah_pahima", name: "Tzah Pahima", description: "Cloud Security Researcher at Orca Security", imageSrc: "/alumni/tzah_p.jpeg", linkedinUrl: "https://www.linkedin.com/in/tzah-pahima-6b5b75178", cohort: "Cohort 2" },
   { id: "yakov_kosoburd", name: "Yakov Kosoburd", description: "MSc Research Student at Weizmann Institute", imageSrc: "/alumni/yakov_k.png", linkedinUrl: "https://www.linkedin.com/in/yakov-kosoburd-8b8aa127a", cohort: "Cohort 2" },
-  { id: "barak_lavy", name: "Barak Lavy", description: "CTO at Stealth", imageSrc: "/alumni/barak_l.jpeg", linkedinUrl: "https://www.linkedin.com/in/barak-lavy", cohort: "Cohort 2" },
+  { id: "barak_lavy", name: "Barak Lavy", description: "CTO at Stealth", imageSrc: "/alumni/barak_l.jpeg", linkedinUrl: "https://www.linkedin.com/in/barak-lavy", cohort: "Cohort 2", track: "founder" },
   { id: "michael_zuzovski", name: "Michael Zuzovski", description: "Researcher at Tel Aviv University", imageSrc: "/alumni/michael_z.jpeg", linkedinUrl: "https://www.linkedin.com/in/michael-z-2355655a", cohort: "Cohort 2" },
   { id: "shachar_resisi", name: "Shachar Resisi", description: "Algorithm Developer at Vayyar Imaging", imageSrc: "/alumni/schachar_r.jpeg", linkedinUrl: "https://www.linkedin.com/in/shachar-resisi", cohort: "Cohort 2" },
   { id: "shaked_yehezkel", name: "Shaked Yehezkel", description: "Researcher at Tel Aviv University", imageSrc: "/alumni/shaked_y.jpeg", linkedinUrl: "https://www.linkedin.com/", cohort: "Cohort 2" },
@@ -138,13 +144,13 @@ export const alumniMembers: Alumni[] = [
   { id: "eyal_kraft", name: "Eyal Kraft", description: "CTO @ Stealth", imageSrc: "/alumni/eyal_kraft.jpeg", linkedinUrl: "https://www.linkedin.com/in/eyalkraft/", cohort: "Beta Cohort 2024" },
   { id: "eldad_kepten", name: "Eldad Kepten", description: "Leading Data Scientist from Research to Product", imageSrc: "/alumni/eldad_kepten.jpeg", linkedinUrl: "https://www.linkedin.com/in/eldad-kepten-441ba124/", cohort: "Beta Cohort 2024" },
   { id: "michal_shilo", name: "Michal Shilo", description: "Data scientist and Talpiot graduate", imageSrc: "/alumni/michal_shilo.jpeg", linkedinUrl: "https://www.linkedin.com/in/michal-shilo-ba3002190/", cohort: "Beta Cohort 2024" },
-  { id: "amir_anisman", name: "Amir Anisman", description: "Talpiot XVII", imageSrc: "/alumni/amir_anisman.jpg", linkedinUrl: "https://www.linkedin.com/in/amir-anisman-a8214520b/", cohort: "Beta Cohort 2024" },
+  { id: "amir_anisman", name: "Amir Anisman", description: "Talpiot XVII", imageSrc: "/alumni/amir_anisman.jpg", linkedinUrl: "https://www.linkedin.com/in/amir-anisman-a8214520b/", cohort: "Beta Cohort 2024", track: "founder" },
   { id: "assaf_monsa", name: "Assaf Monsa", description: "Co-Founder, CTO & VP R&D @ D-Fend Solutions", imageSrc: "/alumni/assaf_monsa.jpeg", linkedinUrl: "https://www.linkedin.com/in/assaf-monsa-72a84/", cohort: "Beta Cohort 2024" },
   { id: "gai_gutherz", name: "Gai Gutherz", description: "Head of Technical Product @ Miggo", imageSrc: "/alumni/gai_gutherz.jpeg", linkedinUrl: "https://www.linkedin.com/in/gai-gutherz/", cohort: "Beta Cohort 2024" },
   { id: "danny_grander", name: "Danny Grander", description: "Co-Founder @ Snyk, Angel Investor", imageSrc: "/alumni/danny_grander.jpeg", linkedinUrl: "https://www.linkedin.com/in/grander/", cohort: "Beta Cohort 2024" },
   { id: "noy_duany", name: "Noy Duany", description: "R&D Team Lead @Hopper Security", imageSrc: "/alumni/noy_duany.jpeg", linkedinUrl: "https://www.linkedin.com/in/noyduany/", cohort: "Beta Cohort 2024" },
   { id: "daniel_ohayon", name: "Daniel Ohayon", description: "MSc. Student at Technion | Psagot", imageSrc: "/alumni/daniel_ohayon.jpeg", linkedinUrl: "https://www.linkedin.com/in/daniel-ohayon-45b68513a/", cohort: "Beta Cohort 2024" },
-  { id: "daniel_drizin", name: "Daniel Drizin", description: "VP R&D at Paragon", imageSrc: "/alumni/daniel_drizin.jpeg", linkedinUrl: "https://www.linkedin.com/in/ddrizin/", cohort: "Beta Cohort 2024" },
+  { id: "daniel_drizin", name: "Daniel Drizin", description: "VP R&D at Paragon", imageSrc: "/alumni/daniel_drizin.jpeg", linkedinUrl: "https://www.linkedin.com/in/ddrizin/", cohort: "Beta Cohort 2024", track: "founder" },
   { id: "dror_ben_eliezer", name: "Dror Ben Eliezer", description: "Independent Consultant | ex-Nike | Talpiot", imageSrc: "/alumni/dror_ben_eliezer.jpeg", linkedinUrl: "https://www.linkedin.com/in/dror-ben-eliezer-b084406/", cohort: "Beta Cohort 2024" },
   { id: "meir_adest", name: "Meir Adest", description: "Co-Founder, SolarEdge Technologies", imageSrc: "/alumni/meir_adest.png", linkedinUrl: "https://www.linkedin.com/in/meiradest/", cohort: "Beta Cohort 2024" },
   { id: "michael_kellner", name: "Michael Kellner", description: "Co-Founder & CTO @SendBlocks", imageSrc: "/alumni/michael_kellner.jpeg", linkedinUrl: "https://www.linkedin.com/in/michael-kellner-689258206/", cohort: "Beta Cohort 2024" },
@@ -153,11 +159,30 @@ export const alumniMembers: Alumni[] = [
   { id: "inbal_beracha", name: "Inbal Beracha", description: "Founding Engineer @Stealth", imageSrc: "/alumni/inbal_beracha.jpeg", linkedinUrl: "https://www.linkedin.com/in/inbal-beracha-a668ab182/", cohort: "Beta Cohort 2024" },
   { id: "eran_hirsch", name: "Eran Hirsch", description: "Freelance Full-Stack, Ex-Meta", imageSrc: "/alumni/eran_hirsch.jpeg", linkedinUrl: "https://www.linkedin.com/in/eranhirsch/", cohort: "Beta Cohort 2024" },
   { id: "eran_hertzmann", name: "Eran Hertzmann", description: "Product Executive | AI-Powered Digital Health", imageSrc: "/alumni/eran_hertzmann.jpeg", linkedinUrl: "https://www.linkedin.com/in/eran-hertzmann-24a400/", cohort: "Beta Cohort 2024" },
-  { id: "zvi_wexlstein", name: "Zvi Wexlstein", description: "Software Architect at Polar (An IBM Company)", imageSrc: "/alumni/zvi_wexlstein.jpeg", linkedinUrl: "https://www.linkedin.com/in/zvi-wexlstein/", cohort: "Beta Cohort 2024" },
+  { id: "zvi_wexlstein", name: "Zvi Wexlstein", description: "Software Architect at Polar (An IBM Company)", imageSrc: "/alumni/zvi_wexlstein.jpeg", linkedinUrl: "https://www.linkedin.com/in/zvi-wexlstein/", cohort: "Beta Cohort 2024", track: "founder" },
   { id: "ronen_tur", name: "Ronen Tur", description: "Director of Algorithms and Deep Learning | Talpiot", imageSrc: "/alumni/ronen_tur.jpeg", linkedinUrl: "https://www.linkedin.com/in/ronen-tur-641a0a18/", cohort: "Beta Cohort 2024" },
   { id: "roee_yaron", name: "Roee Yaron", description: "Physicist @ Ministry of Defense | Talpiot", imageSrc: "/alumni/roee_yaron.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Beta Cohort 2024" },
   { id: "rami_anati", name: "Rami anati", description: "Team Lead, Back End Project Manager", imageSrc: "/alumni/rami_anati.jpeg", linkedinUrl: "https://www.linkedin.com/in/ramianati/", cohort: "Beta Cohort 2024" },
   { id: "shachar_cohen", name: "Shachar Cohen", description: "Software R&D Engineer and Manager | Talpiot", imageSrc: "/alumni/shachar_cohen.jpeg", linkedinUrl: "https://www.linkedin.com/in/shachar-cohen-480b86205/", cohort: "Beta Cohort 2024" },
   { id: "shai_elroy", name: "Shai Elroy", description: "R&D Team Lead, Cyber", imageSrc: "/alumni/shai_elroy.jpeg", linkedinUrl: "https://www.linkedin.com/in/shai-elroy/", cohort: "Beta Cohort 2024" },
   { id: "aviel_adler", name: "Aviel Adler", description: "", imageSrc: "/alumni/placeholder.png", linkedinUrl: "https://www.linkedin.com/in/aviel-a-a87b2612/", cohort: "Beta Cohort 2024" },
+
+  // Founder Track — APEX Inception Sprint teams
+  { id: "ran_shulkind", name: "Ran Shulkind", description: "Founder at Stealth", imageSrc: "/alumni/ran_shulkind.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "guy_zohar", name: "Guy Zohar", description: "Founder at Stealth", imageSrc: "/alumni/guy_zohar.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "smadar_david", name: "Smadar David", description: "Founder at Stealth", imageSrc: "/alumni/smadar_david.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "kfir_ben_haim", name: "Kfir Ben Haim", description: "Founder at Stealth", imageSrc: "/alumni/kfir_ben_haim.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "roy_saar", name: "Roy Saar", description: "Founder at Stealth", imageSrc: "/alumni/roy_saar.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "or_elias", name: "Or Elias", description: "Founder at Stealth", imageSrc: "/alumni/or_elias.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "amir_day", name: "Amir Day", description: "Founder at Stealth", imageSrc: "/alumni/amir_day.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "dan_riesel", name: "Dan Riesel", description: "Founder at Stealth", imageSrc: "/alumni/dan_riesel.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "naama_dayan", name: "Naama Dayan", description: "Founder at Stealth", imageSrc: "/alumni/naama_dayan.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "yuval_peless", name: "Yuval Peless", description: "Founder at Stealth", imageSrc: "/alumni/yuval_peless.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "ben_cohen", name: "Ben Cohen", description: "Founder at Stealth", imageSrc: "/alumni/ben_cohen.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "ron_karat", name: "Ron Karat", description: "Founder at Stealth", imageSrc: "/alumni/ron_karat.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "meir_komet", name: "Meir Komet", description: "Founder at Stealth", imageSrc: "/alumni/meir_komet.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "ofek_kirzner", name: "Ofek Kirzner", description: "Founder at Stealth", imageSrc: "/alumni/ofek_kirzner.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "dor_tirosh", name: "Dor Tirosh", description: "Founder at Stealth", imageSrc: "/alumni/dor_tirosh.jpg", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "eran_milo", name: "Eran Milo", description: "Founder at Stealth", imageSrc: "/alumni/eran_milo.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
+  { id: "orian_vakil", name: "Orian Vakil", description: "Founder at Stealth", imageSrc: "/alumni/placeholder.png", linkedinUrl: "https://www.linkedin.com/", cohort: "Inception Sprint", track: "founder" },
 ];

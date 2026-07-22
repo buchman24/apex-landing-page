@@ -33,6 +33,7 @@ function MemberCard({ member }: { member: Member }) {
   )
 }
 
+// Core team only — rendered near the top of the homepage.
 export function Community() {
   return (
     <section className="w-full py-12 md:py-24 bg-background">
@@ -44,24 +45,21 @@ export function Community() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-6 mb-16">
+        <div className="grid grid-cols-2 gap-8 md:grid-cols-2 lg:grid-cols-6">
           {foundingTeamMembers.map((member) => (
             <MemberCard key={member.id} member={member} />
           ))}
         </div>
+      </div>
+    </section>
+  )
+}
 
-        {/* <div className="flex flex-col items-center justify-center mt-12 mb-20 text-center">
-          <p className="mb-4 text-lg text-muted-foreground">
-            Want to see who came through APEX?
-          </p>
-          <Link
-            href="/community/alumni"
-            className="inline-flex items-center justify-center rounded-2xl bg-blue-500 px-10 py-5 text-lg font-semibold text-white shadow-lg transition hover:bg-blue-600"
-          >
-            Meet the Apex Alumni
-          </Link>
-        </div> */}
-
+// Advisory Board + Community members — moved to the bottom of the homepage.
+export function AdvisorsAndCommunity() {
+  return (
+    <section className="w-full py-12 md:py-24 bg-background">
+      <div className="container px-4 md:px-6">
         <div className="mb-12 text-center">
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Advisory Board</h2>
           <p className="text-muted-foreground md:text-xl mt-2">

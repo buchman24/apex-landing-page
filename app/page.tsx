@@ -18,9 +18,10 @@ import {
   TracksSection,
   PricingSection,
   CTASection,
-  QASection
+  QASection,
+  HumanInfrastructureSection
 } from "@/components/sections"
-import { Community } from "@/components/community"
+import { Community, AdvisorsAndCommunity } from "@/components/community"
 
 export default function Home() {
   return (
@@ -28,17 +29,27 @@ export default function Home() {
       <Navbar activePage="home" />
 
       <main className="flex-1">
+        {/*
+          Section order per Avishag's June 12 brief (Task 3). Blocks are kept as
+          self-contained components so they're easy to reshuffle — confirm visually.
+        */}
         <HeroSection />
+        {/* Core team first */}
         <Community />
+        {/* "Why We're Building APEX" right after the core team */}
         <AboutSection />
         <VisionSection />
-        <PartnersSection />
+        {/* Task 2: human-infrastructure framing + "The Human AI Stack" model (per Mor's June 12 design) */}
+        <HumanInfrastructureSection />
         <FeaturesSection />
         <TracksSection />
         <LocationSection />
         {/* <PricingSection /> */}
         <QASection />
         <CTASection />
+        {/* At the very end: all the people (Advisory Board + Community) and partner logos */}
+        <AdvisorsAndCommunity />
+        <PartnersSection />
       </main>
 
       <Footer />

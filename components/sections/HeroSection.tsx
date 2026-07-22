@@ -12,7 +12,7 @@ export function HeroSection() {
             <div className="space-y-2 flex flex-col items-center md:items-start text-center md:text-left">
               <Badge className="inline-flex mb-2">Elite Tech Units to AI Frontiers</Badge>
               <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                Building Israel&apos;s AI Fortress
+                Building The Human Infrastructure
               </h1>
               <p className="max-w-[600px] text-muted-foreground md:text-xl">
                 APEX is a national launchpad, founded by elite tech units alumni to secure Israel&apos;s future in AI.
@@ -34,11 +34,12 @@ export function HeroSection() {
 
           <div className="flex items-center justify-center">
             <Image
-              src="/apex_groupphoto.jpg"
-              width={900}
-              height={900}
-              alt="APEX: Future of AI meets Israeli Edge"
-              className="rounded-xl object-contain"
+              src="/apex-pioneers.jpg"
+              width={1000}
+              height={562}
+              alt="APEX pioneers — builders and researchers shaping Israel's AI future"
+              className="rounded-xl object-cover w-full"
+              priority
             />
           </div>
         </div>

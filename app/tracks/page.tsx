@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -11,6 +10,7 @@ import Footer from "@/components/footer"
 import { CTASection } from "@/components/sections/CTASection"
 import { FounderQASection } from "@/components/sections/FounderQASection"
 import { ArchitectQASection } from "@/components/sections/ArchitectQASection"
+import { ApplyDialog } from "@/components/apply-dialog"
 
 export default function TracksPage() {
   return (
@@ -151,9 +151,9 @@ export default function TracksPage() {
                   <TechnicalCurriculum />
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full">
-                    <Link href="/apply">Apply to Architect Track</Link>
-                  </Button>
+                  <ApplyDialog defaultTrack="Architects">
+                    <Button className="w-full">Apply to Architect Track</Button>
+                  </ApplyDialog>
                 </CardFooter>
               </Card>
             </div>
@@ -238,17 +238,17 @@ export default function TracksPage() {
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full">
-                    <Link href="https://forms.gle/5Zi6HRqKRoNuzTEH7" target="_blank" rel="noopener noreferrer">Apply to Founder Track</Link>
-                  </Button>
+                  <ApplyDialog defaultTrack="Founders">
+                    <Button className="w-full">Apply to Founder Track</Button>
+                  </ApplyDialog>
                 </CardFooter>
               </Card>
 
               <Card className="lg:col-span-2">
                 <CardHeader>
-                  <CardTitle>Curriculum Modules</CardTitle>
+                  <CardTitle>APEX Founders Sprint — 8-Week Curriculum</CardTitle>
                   <CardDescription>
-                    Designed to support founders through every phase of building and scaling their company
+                    Designed to take Israel&apos;s most elite technical talent from idea to AI-first founder
                   </CardDescription>
                 </CardHeader>
                 <CardContent>

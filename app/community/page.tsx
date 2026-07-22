@@ -8,6 +8,7 @@ import { Mountain, Linkedin, Twitter, Github, Mail } from "lucide-react"
 import { Navbar } from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Community } from "@/components/community"
+import { ApplyDialog } from "@/components/apply-dialog"
 
 export default function TeamPage() {
   return (
@@ -48,7 +49,7 @@ export default function TeamPage() {
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
                   <Button asChild variant="outline" size="lg">
-                    <Link href="mailto:careers@apex-ai.org">Contact Us</Link>
+                    <Link href="mailto:team@apex.org.il">Contact Us</Link>
                   </Button>
                 </div>
               </div>
@@ -70,9 +71,9 @@ export default function TeamPage() {
                 </p>
               </div>
               <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg" variant="secondary">
-                  <Link href="/apply">Apply to APEX</Link>
-                </Button>
+                <ApplyDialog defaultTrack="Architects">
+                  <Button size="lg" variant="secondary">Apply to APEX</Button>
+                </ApplyDialog>
                 <Button asChild size="lg" variant="secondary">
                   <Link href="/tracks">Explore Our Tracks</Link>
                 </Button>
