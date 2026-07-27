@@ -44,9 +44,15 @@ export async function POST(request: Request) {
       );
     }
 
+    // Apps Script accepts the POST, runs doPost (which writes the row), then
+    // 302-redirects to a googleusercontent URL to serve its response. That
+    // redirect target returns an error page to non-browser clients, so we must
+    // NOT follow it — the row is already written by the time we get the 302.
+    // We use redirect: "manual" and treat the redirect (opaqueredirect / 3xx)
+    // — or a direct 2xx — as a successful submission.
     const resp = await fetch(APPS_SCRIPT_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
         name,
         email,
@@ -55,12 +61,17 @@ export async function POST(request: Request) {
         track: trackName,
         why,
       }),
-      redirect: "follow",
+      redirect: "manual",
     });
 
-    if (!resp.ok) {
-      const detail = await resp.text();
-      console.error("Apps Script error:", resp.status, detail);
+    const accepted =
+      resp.type === "opaqueredirect" ||
+      resp.status === 0 ||
+      (resp.status >= 200 && resp.status < 400);
+
+    if (!accepted) {
+      const detail = await resp.text().catch(() => "");
+      console.error("Apps Script error:", resp.status, resp.type, detail.slice(0, 300));
       return NextResponse.json(
         { error: "Something went wrong submitting your application. Please try again." },
         { status: 502 }
