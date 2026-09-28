@@ -44,7 +44,7 @@ export const communityMembers: Member[] = [
   // Featured first — in this order: Ido, Ofer, Gal, Idan
   { id: "ido_ben_david", name: "Ido Ben David", description: "Technology Partners Manager at Nebius", imageSrc: "/team/ido_ben_david.jpg", linkedinUrl: "https://www.linkedin.com/in/idobendavid" },
   { id: "ofer_s", name: "Ofer Shacham", description: "CEO at Majestic Labs AI", imageSrc: "/team/ofer_shacham.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofershacham/" },
-  { id: "gal_c", name: "Gal Chechik", description: "Sr. Director of AI Research at NVIDIA, Professor at BIU", imageSrc: "/team/gal_chechik.jpg", linkedinUrl: "https://www.linkedin.com/in/gal-chechik-00a6b44/" },
+  { id: "gal_c", name: "Gal Chechik", description: "Senior Director, AI Research; Professor at NVIDIA / Bar-Ilan University", imageSrc: "/team/gal_chechik.jpg", linkedinUrl: "https://www.linkedin.com/in/gal-chechik-00a6b44/" },
   { id: "idan_s", name: "Idan Schwartz", description: "Assistant Professor at BIU", imageSrc: "/team/idan_schwartz.png", linkedinUrl: "https://www.linkedin.com/in/idansc/" },
 
   // Apex Advisory - First Row
