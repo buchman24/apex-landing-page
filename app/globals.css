@@ -1,69 +1,392 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/*
+  APEX design tokens, sampled from the October 2026 deck and the logo.
+  Contrast on --paper: ink 15.6:1, body 8.1:1, slate 5.4:1.
+  --steel is decorative only, never for text.
+*/
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --paper: 244 243 239;
+    --surface: 255 255 255;
+    --surface-2: 234 232 225;
+    --ink: 13 27 42;
+    --body: 58 68 82;
+    --slate: 74 101 133;
+    --steel: 143 164 188;
+    --rule: 13 27 42;
+    --navy: 37 52 111;
+    --blue: 46 97 174;
+    --on-ink: 244 243 239;
+    --danger: 163 38 27;
+    --header-h: 64px;
+
+    /* shadcn/ui variables, mapped onto the same palette (used by the alumni tabs). */
+    --background: 48 18% 95%;
+    --foreground: 211 53% 11%;
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 211 53% 11%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 221.2 83.2% 53.3%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
-    --radius: 0.5rem;
+    --popover-foreground: 211 53% 11%;
+    --primary: 211 53% 11%;
+    --primary-foreground: 48 18% 95%;
+    --secondary: 47 18% 90%;
+    --secondary-foreground: 211 53% 11%;
+    --muted: 47 18% 90%;
+    --muted-foreground: 212 28% 41%;
+    --accent: 47 18% 90%;
+    --accent-foreground: 211 53% 11%;
+    --destructive: 0 72% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 48 12% 84%;
+    --input: 48 12% 78%;
+    --ring: 211 53% 11%;
+    --radius: 0.25rem;
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+  @media (min-width: 768px) and (min-height: 521px) {
+    :root {
+      --header-h: 72px;
+    }
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
-  body {
-    @apply bg-background text-foreground;
+
+  html {
+    background: rgb(var(--paper));
+    color: rgb(var(--ink));
+    scroll-padding-top: calc(var(--header-h) + 16px);
+    -webkit-text-size-adjust: 100%;
   }
 
-  /* Add scroll margin for anchor links */
-  [id] {
-    scroll-margin-top: 4rem;
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    background: rgb(var(--paper));
+    color: rgb(var(--ink));
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      font-size: 17px;
+    }
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(var(--navy));
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--ink));
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-/* Remove the flashing animation as we're using a different approach now */
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-site px-5 sm:px-8 xl:px-12;
+  }
 
+  /* The text column. On large screens it keeps to the left so the scene owns the right. */
+  .col {
+    @apply w-full lg:max-w-[min(44rem,50vw)];
+  }
+
+  .skip-link {
+    @apply sr-only;
+  }
+  .skip-link:focus {
+    @apply not-sr-only fixed left-4 top-4 z-[100] rounded-sm px-4 py-2 text-sm font-medium;
+    /* Fixed colours: the link sits outside the night tokens. */
+    background: #0d1b2a;
+    color: #fff;
+    outline: 2px solid #cfe0f2;
+    outline-offset: 2px;
+  }
+
+  /* Type scale. Display sizes are fluid and also capped by screen height (landscape phones). */
+  .label,
+  .eyebrow {
+    @apply font-mono text-[11px] font-medium uppercase leading-snug tracking-[0.14em] text-slate sm:text-[12px];
+  }
+
+  .h-display {
+    font-size: clamp(2rem, min(1.2rem + 6.2vw, 11.5svh), 7.25rem);
+    line-height: 0.96;
+    letter-spacing: -0.045em;
+    @apply font-display font-medium text-ink;
+  }
+
+  .h-section {
+    font-size: clamp(2.1rem, 1.3rem + 3.2vw, 4.5rem);
+    line-height: 1;
+    letter-spacing: -0.04em;
+    @apply font-display font-medium text-ink;
+  }
+
+  .h-card {
+    font-size: clamp(1.375rem, 1.15rem + 0.8vw, 1.875rem);
+    line-height: 1.12;
+    letter-spacing: -0.024em;
+    @apply font-display font-medium text-ink;
+  }
+
+  /* Large statement lines (The moment, The missing piece). */
+  .t-statement {
+    font-size: clamp(1.7rem, 1.1rem + 2.5vw, 3.4rem);
+    line-height: 1.06;
+    letter-spacing: -0.034em;
+    @apply font-display font-medium text-ink;
+  }
+
+  .lede {
+    font-size: clamp(1.125rem, 1.02rem + 0.4vw, 1.375rem);
+    line-height: 1.5;
+    letter-spacing: -0.006em;
+    @apply text-body;
+  }
+
+  .num {
+    font-feature-settings: "tnum" 1;
+    letter-spacing: -0.04em;
+    @apply font-display font-medium leading-none text-ink;
+  }
+
+  /* Sections: generous rhythm, a hairline and a mono label on top. */
+  .section {
+    padding-block: clamp(5.5rem, 3.5rem + 8vw, 11rem);
+    @apply relative;
+  }
+  .section-head {
+    @apply flex items-baseline justify-between gap-6 border-t border-rule/15 pt-5;
+  }
+
+  .hairlines > * + * {
+    @apply border-t border-rule/15;
+  }
+
+  .btn {
+    @apply inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-[3px] px-6 text-[15px] font-medium leading-none tracking-[-0.005em] transition-[background-color,border-color,color] duration-200;
+  }
+  /* Smallest phones (320px): two buttons still fit on one row. */
+  @media (max-width: 359px) {
+    .btn {
+      @apply px-4 text-[14px];
+    }
+  }
+  .btn-primary {
+    background: rgb(var(--ink));
+    color: rgb(var(--on-ink));
+  }
+  .btn-primary:hover {
+    background: rgb(var(--navy));
+  }
+  .btn-ghost {
+    @apply border border-ink/25 text-ink;
+  }
+  .btn-ghost:hover {
+    @apply border-ink;
+  }
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    @apply cursor-not-allowed opacity-50;
+  }
+
+  .link {
+    @apply font-medium text-ink underline decoration-ink/30 decoration-1 underline-offset-[5px] transition-[text-decoration-color] hover:decoration-ink;
+  }
+
+  /* Arrow rows: hairline lists of links. */
+  .row-link {
+    @apply flex min-h-[64px] items-center justify-between gap-6 py-4 text-ink transition-colors;
+  }
+  .row-link svg {
+    @apply h-5 w-5 shrink-0 transition-transform duration-300;
+  }
+  .row-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  .field-label {
+    @apply mb-2 block text-[14px] font-medium text-ink;
+  }
+  .field {
+    @apply block h-12 w-full rounded-[3px] border border-ink/50 bg-white/85 px-4 text-[16px] text-ink transition-colors placeholder:text-slate hover:border-ink/75;
+  }
+  textarea.field {
+    @apply h-auto py-3;
+  }
+  .field:focus-visible {
+    @apply border-ink outline-offset-1;
+  }
+}
+
+/* Content rises in as it enters the viewport. CSS only, no JavaScript. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      animation: apex-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+  }
+}
+@keyframes apex-rise {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/*
+  NIGHT. While the live 3D sky is night (SceneCanvas sets data-scene-night on <html>),
+  the page and the header switch to light on navy. Without the live scene
+  (reduced motion, no WebGL, poster only) the page stays in day colours.
+*/
+html[data-scene-night] main,
+html[data-scene-night] [data-site-header] {
+  --ink: 255 255 255;
+  --body: 214 222 232;
+  --slate: 169 189 211;
+  --rule: 207 224 242;
+  --navy: 207 224 242;
+  --on-ink: 13 27 42;
+  --danger: 255 180 168;
+  color: rgb(var(--ink));
+}
+main,
+[data-site-header] {
+  transition: color 0.4s ease;
+}
+main .btn,
+main .section-head {
+  transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
+}
+/* Focus ring on dark surfaces. */
+footer :focus-visible,
+html[data-scene-night] main :focus-visible,
+html[data-scene-night] [data-site-header] :focus-visible {
+  outline-color: #cfe0f2;
+}
+/* Form inputs always stay dark on white. */
+.field {
+  color: #0d1b2a;
+}
+.field::placeholder {
+  color: #4a6585;
+}
+
+/* Header bar: clear over the hero, a quiet bar once the page scrolls. */
+.site-bar {
+  border-bottom: 1px solid transparent;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.site-bar[data-solid] {
+  background: rgba(244, 243, 239, 0.94);
+  border-bottom-color: rgb(var(--rule) / 0.15);
+}
+.site-menu {
+  background: rgb(244, 243, 239);
+}
+html[data-scene-night] .site-bar[data-solid] {
+  background: rgba(10, 22, 36, 0.92);
+}
+html[data-scene-night] .site-menu {
+  background: #0a1624;
+}
+@media (min-width: 1024px) {
+  .site-bar[data-solid] {
+    background: rgba(244, 243, 239, 0.8);
+    -webkit-backdrop-filter: blur(14px);
+    backdrop-filter: blur(14px);
+  }
+  html[data-scene-night] .site-bar[data-solid] {
+    background: rgba(10, 22, 36, 0.74);
+  }
+}
+
+/* The hero: pinned while the first scroll drives the scene. */
+.hero-pin {
+  height: 230svh;
+}
+@media (min-width: 1024px) {
+  .hero-pin {
+    height: 250svh;
+  }
+}
+/* Short screens (landscape phones, large text zoom): no pin, the hero flows like any section. */
+@media (max-height: 520px) {
+  .hero-pin {
+    height: auto;
+  }
+  .hero-pin > .sticky {
+    position: static;
+    height: auto;
+    min-height: 100svh;
+    overflow: visible;
+  }
+}
+/* The plain-text sentence shows only when the scene labels could not be placed. */
+[data-hero-sub] {
+  transition: opacity 0.5s ease;
+  text-shadow: 0 0 3px rgb(244 243 239 / 0.95), 0 0 12px rgb(244 243 239 / 0.95);
+}
+html[data-hero-labels] [data-hero-sub] {
+  opacity: 0;
+}
+
+/* Scene breaks: the page steps aside and the mountain holds the screen. */
+.scene-break {
+  height: 115svh;
+}
+@media (min-width: 1024px) {
+  .scene-break {
+    height: 140svh;
+  }
+}
+
+/* Keep hyphenated words together ("long-term"). */
+.nowrap {
+  white-space: nowrap;
+}

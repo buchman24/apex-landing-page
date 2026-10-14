@@ -868,13 +868,12 @@ wandb.finish()`}
                     <li><code>feature_engineering.ipynb</code></li>
                     <li><code>ml_modeling.ipynb</code></li>
                     <li><code>eda.ipynb</code></li>
-                    <li>(Should be <code>main.py</code> as per Phase 6)</li>
-                    <li>(Should be <code>evaluation.py</code> or <code>evaluation.ipynb</code> as per Phase 7)</li>
+                    <li><code>main.py</code></li>
+                    <li><code>evaluation.py</code> or <code>evaluation.ipynb</code></li>
                     <li><code>requirements.txt</code></li>
                     <li><code>README.md</code></li>
                     <li><code>README_Advanced.md</code> (mentioned in Final Report section)</li>
                  </ul>
-                  <p><i>Note: Some items in the original markdown list were potentially redundant or referred to files generated/named in specific phases. The list above reflects the final expected structure based on the phase descriptions.</i></p>
         </section>
 
         <section id="further-reading">
