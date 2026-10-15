@@ -1,6 +1,14 @@
+/*
+  Sized to the large viewport (toolbar hidden), not inset: 0, so it does not resize while a
+  mobile browser's toolbar slides in and out during scroll (each resize would clear the canvas).
+*/
 .scene {
   position: fixed;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100lvh;
   z-index: 0;
   pointer-events: none;
   overflow: hidden;
@@ -34,12 +42,16 @@
   opacity: 0;
 }
 
-/* Readability veil between the scene and the text: a soft wash on the text side. */
+/*
+  Readability veil between the scene and the text: a soft wash on the text side.
+  Its opacity follows the scroll (SceneCanvas sets it as the hero or a scene break comes into
+  view), so it never pulses on its own when someone scrolls quickly.
+*/
 .veil {
   position: absolute;
   inset: 0;
   opacity: 1;
-  transition: opacity 600ms ease, background 600ms ease;
+  transition: background 600ms ease;
   background: rgba(244, 243, 239, 0.86);
 }
 @media (min-width: 1024px) {
@@ -56,12 +68,6 @@
   }
 }
 :global(html:has([data-scene-hero])) .veil {
-  opacity: 0;
-}
-:global(html[data-veil="on"]) .veil {
-  opacity: 1;
-}
-:global(html[data-veil="off"]) .veil {
   opacity: 0;
 }
 /* Full-width pages (the alumni gallery): the wash covers the whole screen. */
@@ -89,6 +95,16 @@
   --label-line: rgba(207, 224, 242, 0.6);
   --label-halo: rgba(10, 22, 36, 0.95);
 }
+/* The small viewport height (toolbar shown): labels stay inside it. */
+.svh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  height: 100svh;
+  visibility: hidden;
+}
 /* Hidden copies of the labels, used only to measure their text. */
 .measure {
   visibility: hidden;
@@ -100,7 +116,8 @@
   width: 0;
   height: 0;
   opacity: 0;
-  transition: opacity 600ms ease;
+  /* Opacity follows the scroll too; this only smooths single-frame steps. */
+  transition: opacity 120ms linear;
   will-change: transform, opacity;
   color: var(--label);
 }

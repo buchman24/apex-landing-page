@@ -17,6 +17,13 @@ type Spot = Omit<SceneProgress, "hero">
 
 const KEYS = Object.keys(sceneLabels) as LabelKey[]
 
+/**
+ * The always-visible viewport height (mobile toolbar shown). Scroll maths use it instead of
+ * innerHeight, which changes while the toolbar slides in and out and made the scene jump.
+ */
+let visibleH = 0
+const vh = () => visibleH || window.innerHeight
+
 function readMarkers(): Marker[] {
   const y = window.scrollY
   return Array.from(document.querySelectorAll<HTMLElement>("[data-scene]"))
@@ -29,7 +36,7 @@ function readMarkers(): Marker[] {
 
 function progressAt(markers: Marker[]): Spot {
   if (!markers.length) return { from: "base", to: "base", t: 0 }
-  const c = window.scrollY + window.innerHeight / 2
+  const c = window.scrollY + vh() / 2
   if (c <= markers[0].center) return { from: markers[0].scene, to: markers[0].scene, t: 0 }
   for (let i = 0; i < markers.length - 1; i++) {
     const a = markers[i], b = markers[i + 1]
@@ -44,7 +51,7 @@ function heroProgress(): number {
   const hero = document.querySelector<HTMLElement>("[data-scene-hero]")
   if (!hero) return -1
   const r = hero.getBoundingClientRect()
-  return Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - window.innerHeight)))
+  return Math.min(1, Math.max(0, -r.top / Math.max(1, r.height - vh())))
 }
 
 /** Same narrow night window as the engine, so the text and the sky change together. */
@@ -54,17 +61,31 @@ function nightAt(p: Spot) {
   return KEYFRAMES[p.from].night + (KEYFRAMES[p.to].night - KEYFRAMES[p.from].night) * w
 }
 
-/** Labels the current view asks for: the hero shows both halves of the sentence, scene breaks name their own. */
-function wantedLabels(): Partial<Record<LabelKey, boolean>> {
-  const out: Partial<Record<LabelKey, boolean>> = {}
-  const H = window.innerHeight
+const smooth = (a: number, b: number, x: number) => {
+  const t = Math.min(1, Math.max(0, (x - a) / (b - a)))
+  return t * t * (3 - 2 * t)
+}
+
+/**
+ * How strongly the current view asks for each label, 0..1, straight from the scroll position:
+ * the hero shows both halves of the sentence until the next section rises, and a scene break
+ * names its own labels while it holds the middle of the screen. The veil uses the same numbers,
+ * so text, wash and labels all move with the finger instead of on timers.
+ */
+function labelStrength(): Partial<Record<LabelKey, number>> {
+  const out: Partial<Record<LabelKey, number>> = {}
+  const H = vh()
   const hero = document.querySelector<HTMLElement>("[data-scene-hero]")
-  // Until the pin releases and the next section starts to rise.
-  if (hero && hero.getBoundingClientRect().bottom > H * 0.92) out.talent = out.frontier = true
+  if (hero) {
+    const s = smooth(H * 0.6, H * 0.92, hero.getBoundingClientRect().bottom)
+    if (s > 0) out.talent = out.frontier = s
+  }
   for (const el of document.querySelectorAll<HTMLElement>("[data-scene-break]")) {
     const r = el.getBoundingClientRect()
-    if (r.top < H * 0.4 && r.bottom > H * 0.6)
-      for (const key of (el.dataset.sceneBreak || "").split(" ")) if (key in sceneLabels) out[key as LabelKey] = true
+    const s = 1 - smooth(H * 0.2, H * 0.5, Math.abs(r.top + r.height / 2 - H / 2))
+    if (s > 0)
+      for (const key of (el.dataset.sceneBreak || "").split(" "))
+        if (key in sceneLabels) out[key as LabelKey] = Math.max(out[key as LabelKey] ?? 0, s)
   }
   return out
 }
@@ -84,6 +105,8 @@ export function SceneCanvas() {
   const labelEls = useRef<Partial<Record<LabelKey, HTMLDivElement | null>>>({})
   const measureEl = useRef<HTMLDivElement>(null)
   const sceneEl = useRef<HTMLDivElement>(null)
+  const svhEl = useRef<HTMLDivElement>(null)
+  const veilEl = useRef<HTMLDivElement>(null)
   const markers = useRef<Marker[]>([])
   // Text size of each label on one line, and wrapped onto two lines (for narrow spots).
   const sizes = useRef<Partial<Record<LabelKey, { one: Size; two: Size }>>>({})
@@ -99,6 +122,7 @@ export function SceneCanvas() {
 
     // One read of the hidden measuring copies (one line and wrapped), no layout thrash.
     const measure = () => {
+      if (svhEl.current) visibleH = svhEl.current.offsetHeight
       const box = measureEl.current
       if (!box) return
       for (const key of KEYS) {
@@ -110,14 +134,18 @@ export function SceneCanvas() {
 
     // Where each label sat last frame, so it stays put while its spot still works.
     const last: Partial<Record<LabelKey, Fit>> = {}
+    // Frames a wanted label has failed to fit in a row. It is kept for a few frames before it
+    // hides, so a spot that fails for a frame or two never makes it blink.
+    const HOLD = 12
+    let pairMiss = 0, railsMiss = 0
 
     placeRef.current = (cands, isLive) => {
-      const show = wantedLabels()
+      const show = labelStrength()
       const { clientWidth: W, clientHeight: H } = sceneEl.current ?? document.documentElement
       const avoid: Box[] = [{ left: 0, top: 0, right: W, bottom: 76 }]
       const copy = document.querySelector<HTMLElement>("[data-hero-copy]")?.getBoundingClientRect()
       if (copy && copy.bottom > 0) avoid.push({ left: copy.left - 16, top: copy.top - 16, right: copy.right + 16, bottom: copy.bottom + 16 })
-      const fits = (b: Box) => b.left >= 12 && b.right <= W - 12 && b.top >= 0 && b.bottom <= H - 8 && !avoid.some((a) => overlaps(a, b))
+      const fits = (b: Box) => b.left >= 12 && b.right <= W - 12 && b.top >= 0 && b.bottom <= Math.min(H, vh()) - 8 && !avoid.some((a) => overlaps(a, b))
       const boxAt = (p: Point, key: LabelKey, h: Fit["h"], v: Fit["v"], wrap: boolean): Box => {
         const { w, h: th } = sizes.current[key]![wrap ? "two" : "one"]
         const left = h === "right" ? p.x - 4 : p.x + 4 - w
@@ -160,8 +188,10 @@ export function SceneCanvas() {
         return best
       }
       // Over the static poster only the hero view is true to the picture.
-      const wanted = (key: LabelKey) => !!show[key] && (isLive || (key !== "rails" && !!document.querySelector("[data-scene-hero]")))
+      const wanted = (key: LabelKey) => (show[key] ?? 0) > 0.01 && (isLive || (key !== "rails" && !!document.querySelector("[data-scene-hero]")))
       const fitted: Partial<Record<LabelKey, Fit>> = {}
+      const heroEl = document.querySelector<HTMLElement>("[data-scene-hero]")
+      const heroWants = !!heroEl && heroEl.getBoundingClientRect().bottom > vh() * 0.92
       // The two halves of the sentence show together or not at all.
       if (wanted("talent") && wanted("frontier")) {
         const out = fit("frontier")
@@ -174,11 +204,18 @@ export function SceneCanvas() {
             avoid.push(into.box)
           } else avoid.pop()
         }
-      }
+        if (fitted.talent) pairMiss = 0
+        else if (last.talent && last.frontier && ++pairMiss < HOLD) {
+          fitted.talent = last.talent
+          fitted.frontier = last.frontier
+          avoid.push(last.talent.box, last.frontier.box)
+        }
+      } else pairMiss = 0
       if (wanted("rails")) {
         const r = fit("rails")
-        if (r) fitted.rails = r
-      }
+        if (r) (fitted.rails = r), (railsMiss = 0)
+        else if (last.rails && ++railsMiss < HOLD) fitted.rails = last.rails
+      } else railsMiss = 0
       for (const key of KEYS) {
         const node = labelEls.current[key]
         if (!node) continue
@@ -194,11 +231,16 @@ export function SceneCanvas() {
         const wrap = f.wrap ? "1" : "0"
         if (node.dataset.wrap !== wrap) node.dataset.wrap = wrap
         node.style.transform = `translate3d(${f.p.x.toFixed(1)}px, ${f.p.y.toFixed(1)}px, 0)`
-        node.style.opacity = "1"
+        const o = show[key] ?? 0
+        if (Math.abs(parseFloat(node.style.opacity || "0") - o) > 0.01) node.style.opacity = o.toFixed(2)
       }
-      // The hero keeps a plain-text copy of the sentence, shown whenever the labels cannot be placed.
-      const pair = !!fitted.talent
-      if (html.hasAttribute("data-hero-labels") !== pair) html.toggleAttribute("data-hero-labels", pair)
+      // The hero keeps a plain-text copy of the sentence, shown only while the hero asks for the
+      // labels and they cannot be placed. Once the hero scrolls away the state is left as it was,
+      // so the copy never fades in on its way out.
+      if (heroWants) {
+        const fallback = !fitted.talent
+        if (html.hasAttribute("data-hero-fallback") !== fallback) html.toggleAttribute("data-hero-fallback", fallback)
+      }
     }
 
     const placeStatic = () => {
@@ -212,8 +254,13 @@ export function SceneCanvas() {
       cancelAnimationFrame(raf)
       raf = requestAnimationFrame(() => {
         // The veil lifts while the hero or a scene break holds the screen.
-        const veil = Object.keys(wantedLabels()).length ? "off" : document.querySelector("[data-veil-full]") ? "full" : "on"
-        if (html.dataset.veil !== veil) html.dataset.veil = veil
+        const open = Math.max(0, ...Object.values(labelStrength()))
+        // Set on the veil itself: a variable on <html> would restyle the whole page every frame.
+        const veil = 1 - open
+        const v = veilEl.current
+        if (v && Math.abs(parseFloat(v.style.opacity || "-1") - veil) > 0.004) v.style.opacity = veil.toFixed(3)
+        const full = !!document.querySelector("[data-veil-full]")
+        if ((html.dataset.veil === "full") !== full) full ? (html.dataset.veil = "full") : html.removeAttribute("data-veil")
         placeStatic()
       })
     }
@@ -242,7 +289,8 @@ export function SceneCanvas() {
       window.removeEventListener("resize", update)
       window.removeEventListener("scroll", onScroll)
       html.removeAttribute("data-veil")
-      html.removeAttribute("data-hero-labels")
+      veilEl.current?.style.removeProperty("opacity")
+      html.removeAttribute("data-hero-fallback")
     }
   }, [pathname])
 
@@ -343,7 +391,8 @@ export function SceneCanvas() {
         <img src="/scene/poster-wide.webp" width={1600} height={900} alt="" decoding="async" fetchPriority="high" />
       </picture>
       <canvas ref={canvas} className={styles.canvas} />
-      <div className={styles.veil} />
+      <div ref={svhEl} className={styles.svh} />
+      <div ref={veilEl} className={styles.veil} />
       <div ref={measureEl} className={`${styles.labels} ${styles.measure}`}>
         {KEYS.flatMap((key) =>
           ["0", "1"].map((wrap) => (

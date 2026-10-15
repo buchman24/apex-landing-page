@@ -380,7 +380,9 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
     }
   }
   resize()
-  const ro = new ResizeObserver(() => resize())
+  // Resizing clears the canvas, so it only happens inside draw(), right before a new frame is rendered.
+  let sizeDirty = false
+  const ro = new ResizeObserver(() => (sizeDirty = true))
   ro.observe(canvas)
 
   const onScroll = () => (lastInput = performance.now())
@@ -418,7 +420,11 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
     raf = requestAnimationFrame(draw)
     if (lost) return
     const idle = now - lastInput > 1400
-    if (idle && (frameSkip = (frameSkip + 1) % 2) === 1) return // ~30fps when idle
+    if (idle && !sizeDirty && (frameSkip = (frameSkip + 1) % 2) === 1) return // ~30fps when idle
+    if (sizeDirty) {
+      sizeDirty = false
+      resize()
+    }
     const dt = Math.min(0.05, (now - last) / 1000)
     last = now
     const time = (now - t0) / 1000

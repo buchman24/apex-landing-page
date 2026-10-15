@@ -37,7 +37,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
   // Fails the production build while content is missing or unapproved (see content/release.ts).
   enforceReleaseGate()
   return (
-    <html lang="en" className={`${inter.variable} ${interTight.variable} ${plexMono.variable} ${poppins.variable}`}>
+    <html lang="en" className={`${inter.variable} ${interTight.variable} ${plexMono.variable} ${poppins.variable}`} suppressHydrationWarning>
+      <head>
+        {/* Marks that scripts run, before first paint, so script-only fallbacks stay hidden. */}
+        <script dangerouslySetInnerHTML={{ __html: "document.documentElement.setAttribute('data-js','')" }} />
+      </head>
       <body className="min-h-screen font-sans">{children}</body>
     </html>
   )

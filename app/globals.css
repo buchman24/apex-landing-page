@@ -367,12 +367,12 @@ html[data-scene-night] .site-menu {
     overflow: visible;
   }
 }
-/* The plain-text sentence shows only when the scene labels could not be placed. */
+/* The plain-text sentence shows without JavaScript, or when the scene labels could not be placed. */
 [data-hero-sub] {
   transition: opacity 0.5s ease;
   text-shadow: 0 0 3px rgb(244 243 239 / 0.95), 0 0 12px rgb(244 243 239 / 0.95);
 }
-html[data-hero-labels] [data-hero-sub] {
+html[data-js]:not([data-hero-fallback]) [data-hero-sub] {
   opacity: 0;
 }
 
