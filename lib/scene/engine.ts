@@ -46,7 +46,6 @@ const NAVY = hex("#25346F")
 const BLUE = hex("#2E61AE")
 const ICE = hex("#7FB7E3")
 const SLATE = hex("#4A6585")
-const INK = hex("#0D1B2A")
 const WHITE: V3 = [1, 1, 1]
 
 /* ------------------------------------------------------------------ maths */
@@ -128,25 +127,6 @@ const PT_FS = `varying vec4 vC;void main(){float r=length(gl_PointCoord-.5);floa
 const LN_VS = `attribute vec3 aP;attribute float aT;uniform mat4 uVP;varying float vT;void main(){vT=aT;gl_Position=uVP*vec4(aP,1.);}`
 const LN_FS = `uniform vec4 uC;uniform vec3 uD;varying float vT;
 void main(){if(uD.x>0.&&fract(vT*uD.x-uD.y)>uD.z)discard;float a=uC.a;gl_FragColor=vec4(uC.rgb*a,a);}`
-
-// The flag of Israel, drawn procedurally: white field, two blue stripes, Star of David.
-const FLAG_VS = `attribute vec2 aUV;uniform mat4 uVP;uniform vec3 uTop,uRight,uDown,uNorm;uniform float uTime,uW,uH;varying vec2 vUV;varying float vS;
-void main(){vUV=aUV;float ph=aUV.x*6.5-uTime*3.;vS=cos(ph);
-vec3 p=uTop+uRight*aUV.x*uW+uDown*aUV.y*uH+uNorm*(sin(ph)*.085*aUV.x+sin(aUV.x*11.-uTime*4.3+aUV.y*2.)*.02*aUV.x);
-gl_Position=uVP*vec4(p,1.);}`
-const FLAG_FS = `uniform float uNight,uAspect;varying vec2 vUV;varying float vS;
-float tri(vec2 p,float r){const float k=1.7320508;p.x=abs(p.x)-r;p.y=p.y+r/k;if(p.x+k*p.y>0.)p=vec2(p.x-k*p.y,-k*p.x-p.y)/2.;p.x-=clamp(p.x,-2.*r,0.);return -length(p)*sign(p.y);}
-void main(){
-float v=vUV.y;float aa=.006;
-float st=smoothstep(.094-aa,.094+aa,v)*(1.-smoothstep(.25-aa,.25+aa,v))+smoothstep(.75-aa,.75+aa,v)*(1.-smoothstep(.906-aa,.906+aa,v));
-vec2 q=vec2((vUV.x-.5)*uAspect,.5-v);
-float s=min(abs(tri(q,.1576)),abs(tri(vec2(q.x,-q.y),.1576))); // half side = 0.182 circumradius * sqrt(3)/2
-float star=1.-smoothstep(.017-aa,.017+aa,s);
-vec3 col=mix(vec3(1.),vec3(0.,.22,.72),clamp(st+star,0.,1.));
-col*=.86+.14*vS;
-col=mix(col,col*.58+vec3(.03,.05,.1),uNight);
-gl_FragColor=vec4(col,1.);
-}`
 
 function upgrade(src: string, frag: boolean, gl2: boolean, highp: boolean) {
   const prec = `precision ${highp ? "highp" : "mediump"} float;\n`
@@ -253,29 +233,14 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
     }
     seg.net = [start, lineData.length / 4 - start]
   }
-  // Flag pole and the night beam above the summit.
-  const POLE = 1.75
-  const poleTop: V3 = [S[0], S[1] + POLE, S[2]]
-  seg.pole = [lineData.length / 4, 2]
-  lineData.push(S[0], S[1], S[2], 0, poleTop[0], poleTop[1], poleTop[2], 1)
+  // The night beam above the summit.
   seg.beam = [lineData.length / 4, 2]
-  lineData.push(S[0], S[1] + POLE + 0.1, S[2], 0, S[0], S[1] + 10, S[2], 1)
+  lineData.push(S[0], S[1] + 0.4, S[2], 0, S[0], S[1] + 10, S[2], 1)
   // Rings are rebuilt every frame (camera facing): reserve space.
   const RING_SEG = 72
   const ringStart = lineData.length / 4
   for (let i = 0; i < 3 * RING_SEG * 2; i++) lineData.push(0, 0, 0, 0)
   const lines = new Float32Array(lineData)
-
-  // Flag mesh: a strip of quads, uv only (shape and wave come from the shader).
-  const FLAG_SEG = 18
-  const flagUV = new Float32Array((FLAG_SEG + 1) * 4)
-  for (let i = 0; i <= FLAG_SEG; i++) flagUV.set([i / FLAG_SEG, 0, i / FLAG_SEG, 1], i * 4)
-  const FLAG_W = 1.3, FLAG_H = 0.945
-  // The flag flies away from the fan of output lines, so the lines are seen leaving the summit.
-  const fr = [-1, 0, 0.45], frl = Math.hypot(fr[0], fr[1], fr[2])
-  const flagRight: V3 = [fr[0] / frl, fr[1] / frl, fr[2] / frl]
-  const flagDown: V3 = [0, -1, 0]
-  const flagNorm: V3 = [flagRight[2], 0, -flagRight[0]]
 
   // Stars on a dome behind the range.
   const nStars = hi ? 320 : 180
@@ -313,8 +278,8 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
   const dyn = new Float32Array(nDyn * 8)
 
   /* ---- GL resources (rebuilt on context restore) */
-  let progs: { sky: Prog; surf: Prog; pt: Prog; ln: Prog; flag: Prog }
-  let bufs: { tri: WebGLBuffer; surf: WebGLBuffer; lines: WebGLBuffer; stars: WebGLBuffer; ridge: WebGLBuffer; dyn: WebGLBuffer; flag: WebGLBuffer }
+  let progs: { sky: Prog; surf: Prog; pt: Prog; ln: Prog }
+  let bufs: { tri: WebGLBuffer; surf: WebGLBuffer; lines: WebGLBuffer; stars: WebGLBuffer; ridge: WebGLBuffer; dyn: WebGLBuffer }
   const nVerts = geo.surface.length / 12
   const setup = async () => {
     if (!gl2) G.getExtension("OES_standard_derivatives")
@@ -323,7 +288,6 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
       surf: program(G, SURF_VS, SURF_FS, gl2, highp),
       pt: program(G, PT_VS, PT_FS, gl2, highp),
       ln: program(G, LN_VS, LN_FS, gl2, highp),
-      flag: program(G, FLAG_VS, FLAG_FS, gl2, highp),
     }
     await nextFrame()
     const mk = (data: Float32Array, usage: number) => {
@@ -339,7 +303,6 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
       stars: mk(stars, G.STATIC_DRAW),
       ridge: mk(ridge, G.STATIC_DRAW),
       dyn: mk(dyn, G.DYNAMIC_DRAW),
-      flag: mk(flagUV, G.STATIC_DRAW),
     }
   }
   await setup()
@@ -651,24 +614,6 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
     attrib(su, "aI", 3, 12, 9)
     G.drawArrays(G.TRIANGLES, 0, nVerts)
 
-    // flag of Israel at the summit
-    disableAll()
-    const fp = progs.flag
-    G.useProgram(fp.p)
-    G.uniformMatrix4fv(fp.u.uVP, false, VP)
-    G.uniform3fv(fp.u.uTop, poleTop)
-    G.uniform3fv(fp.u.uRight, flagRight)
-    G.uniform3fv(fp.u.uDown, flagDown)
-    G.uniform3fv(fp.u.uNorm, flagNorm)
-    G.uniform1f(fp.u.uTime, time)
-    G.uniform1f(fp.u.uW, FLAG_W)
-    G.uniform1f(fp.u.uH, FLAG_H)
-    G.uniform1f(fp.u.uNight, night)
-    G.uniform1f(fp.u.uAspect, FLAG_W / FLAG_H)
-    G.bindBuffer(G.ARRAY_BUFFER, bufs.flag)
-    attrib(fp, "aUV", 2, 2, 0)
-    G.drawArrays(G.TRIANGLE_STRIP, 0, (FLAG_SEG + 1) * 2)
-
     // lines
     G.enable(G.BLEND)
     G.depthMask(false)
@@ -692,7 +637,6 @@ export async function startScene(canvas: HTMLCanvasElement, opts: SceneOptions):
     for (let k = 0; k < activeArcs; k++) drawSeg(`arc${k}`, (0.16 + 0.14 * night) * clamp01(out * ARCS - k) * introE, [70, time * 0.3, 0.5])
     drawSeg("net", 0.42 * net, [26, time * 0.6, 0.5], ICE)
     drawSeg("beam", 0.32 * night, [0, 0, 1], ICE)
-    drawSeg("pole", 0.95 * introE, [0, 0, 1], mix3(INK, WHITE, night))
     G.disable(G.DEPTH_TEST)
     for (let r = 0; r < 3; r++) {
       const ringA = (r === 1 ? 0.3 : 0.42) * introE * (0.7 + 0.3 * Math.sin(time * 1.1 + r * 1.9)) * (0.6 + 0.4 * flare)
