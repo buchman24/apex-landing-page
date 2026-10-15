@@ -6,40 +6,84 @@ import { Gated, PendingMark } from "./Gated"
 import { Missing } from "./Missing"
 import { LogoRow } from "./LogoRow"
 import { renders, showPlaceholders, unmarked } from "@/lib/placeholders"
+import { personMedia } from "@/lib/people-media"
 import { cn } from "@/lib/utils"
 import type { founders as FoundersT, architects as ArchitectsT } from "@/content/tracks"
 
 type Person = { name: string; role: string; hideWhenPending?: boolean } & Partial<Approval<string>>
 
-export function PeopleList({ people, className }: { people: Person[]; className?: string }) {
+/** People as portraits that link to their LinkedIn (photos and links come from data/members.ts). */
+export function PeopleGrid({ people, className }: { people: Person[]; className?: string }) {
   return (
-    <ul className={cn("hairlines border-y border-rule/15", className)}>
+    <ul className={cn("grid grid-cols-2 gap-x-4 gap-y-9 sm:grid-cols-3 sm:gap-x-6 md:gap-y-12", className)}>
       {people.map((p) => {
         const pending = p.approved === false
-        if (pending && !showPlaceholders) {
-          if (p.hideWhenPending) return null
-          return (
-            <li key={p.name} className="py-4">
-              <p className="font-display text-[19px] font-medium tracking-[-0.015em] text-ink">{p.name}</p>
-            </li>
-          )
-        }
+        // In production an unapproved role is left out, and some people are left out entirely.
+        if (pending && !showPlaceholders && p.hideWhenPending) return null
+        const { photo, href } = personMedia(p.name)
+        const body = (
+          <>
+            <Portrait photo={photo} name={p.name} />
+            <p className="mt-3 font-display text-[17px] font-medium leading-tight tracking-[-0.015em] text-ink md:text-[19px]">{p.name}</p>
+            {!pending || showPlaceholders ? (
+              <p className="mt-1 text-[14px] leading-snug text-body">
+                {p.role}
+                {pending ? (
+                  <>
+                    {" "}
+                    <PendingMark item={{ approver: p.approver ?? "unassigned", note: p.note }} />
+                  </>
+                ) : null}
+              </p>
+            ) : null}
+          </>
+        )
         return (
-          <li key={p.name} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:justify-between sm:gap-8">
-            <p className="font-display text-[19px] font-medium tracking-[-0.015em] text-ink">{p.name}</p>
-            <p className="text-[15px] text-body sm:text-right">
-              {p.role}
-              {pending ? (
-                <>
-                  {" "}
-                  <PendingMark item={{ approver: p.approver ?? "unassigned", note: p.note }} />
-                </>
-              ) : null}
-            </p>
+          <li key={p.name}>
+            {href ? (
+              <a href={href} target="_blank" rel="noopener noreferrer" className="group block rounded-[2px]">
+                {body}
+                <span aria-hidden="true" className="label mt-2 inline-flex items-center gap-1.5 transition-colors group-hover:text-ink [&_svg]:h-3.5 [&_svg]:w-3.5">
+                  LinkedIn
+                  <Arrow />
+                </span>
+                <span className="sr-only"> on LinkedIn (opens in a new tab)</span>
+              </a>
+            ) : (
+              body
+            )}
           </li>
         )
       })}
     </ul>
+  )
+}
+
+/** A square portrait, or the person's initials when there is no photo. */
+export function Portrait({ photo, name, className }: { photo: string | null; name: string; className?: string }) {
+  const initials = name
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("")
+  return (
+    <div className={cn("aspect-square overflow-hidden rounded-[2px] bg-ink/[0.06]", className)}>
+      {photo ? (
+        <img
+          src={photo}
+          alt=""
+          width={480}
+          height={480}
+          loading="lazy"
+          decoding="async"
+          className="h-full w-full object-cover object-[50%_30%] transition-transform duration-500 group-hover:scale-[1.03]"
+        />
+      ) : (
+        <span aria-hidden="true" className="flex h-full w-full items-center justify-center font-display text-[clamp(1.25rem,4vw,2rem)] font-medium text-slate">
+          {initials}
+        </span>
+      )}
+    </div>
   )
 }
 

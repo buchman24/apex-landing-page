@@ -8,7 +8,7 @@ import { site } from "@/content/site"
 import { isMissing } from "@/content/_lib"
 import { Section, SceneBreak } from "@/components/site/Section"
 import { Missing } from "@/components/site/Missing"
-import { IsraelFacts, KeepHyphens, LinkRows, PeopleList, QuoteBlock, StatGrid, TrackSummary } from "@/components/site/blocks"
+import { IsraelFacts, KeepHyphens, LinkRows, PeopleGrid, QuoteBlock, StatGrid, TrackSummary } from "@/components/site/blocks"
 import { renders, showPlaceholders } from "@/lib/placeholders"
 import { LogoRow } from "@/components/site/LogoRow"
 import { RsvpForm } from "@/components/site/forms/RsvpForm"
@@ -162,12 +162,12 @@ export default function HomePage() {
         <div className="mt-14 grid gap-14 md:mt-20">
           <div className="reveal">
             <h3 className="label">Core team</h3>
-            <PeopleList people={coreTeam} className="mt-4" />
+            <PeopleGrid people={coreTeam} className="mt-6" />
             <Missing item={coreTeamOpenQuestion} className="mt-5" />
           </div>
           <div className="reveal">
             <h3 className="label">Advisory board</h3>
-            <PeopleList people={advisoryBoard} className="mt-4" />
+            <PeopleGrid people={advisoryBoard} className="mt-6" />
           </div>
         </div>
         <p className="mt-10">
