@@ -1,4 +1,4 @@
-import { missing } from "./_lib"
+import { missing, type Approval } from "./_lib"
 
 /*
   The /partner page: the case for partners and donors.
@@ -24,6 +24,24 @@ export const partnerPage = {
       tracks: ["Architects", "Founders"],
       bottom: "National AI capability",
     },
+  },
+
+  /** WHY-NOW DECK, last slide: the whole argument in one chain. */
+  inOneLine: {
+    heading: "Why now, in one line.",
+    links: [
+      { label: "Foundation", text: "A technological edge holds up Israel's security, economy and alliances." },
+      { label: "Erosion", text: "AI is eroding it." },
+      { label: "Price", text: "And it is already costing us: access to chips and frontier models." },
+      { label: "Lever", text: "The one asset where Israel still leads: people." },
+      { label: "So", text: "APEX builds the lever." },
+    ],
+    approval: {
+      value: "Why now, in one line (partner page)",
+      approved: false,
+      approver: "Avishag Bohbot",
+      source: "Internal deck 'APEX – למה עכשיו' (17.10.2026), summary slide",
+    } satisfies Approval,
   },
 
   precedent: {

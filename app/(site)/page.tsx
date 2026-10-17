@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { hero, moment, missingPiece, how, tracksIntro, proof, peopleTeaser, events, community, partners } from "@/content/home"
+import { hero, moment, whyNow, missingPiece, how, tracksIntro, proof, peopleTeaser, events, community, partners } from "@/content/home"
 import { founders, architects } from "@/content/tracks"
 import { coreTeam, coreTeamOpenQuestion, advisoryBoard } from "@/content/people"
 import { upcomingEvents, eventsMissing } from "@/content/events"
@@ -8,6 +8,8 @@ import { site } from "@/content/site"
 import { isMissing } from "@/content/_lib"
 import { Section, SceneBreak } from "@/components/site/Section"
 import { Missing } from "@/components/site/Missing"
+import { Gated } from "@/components/site/Gated"
+import { WhyNowStep } from "@/components/site/WhyNow"
 import { IsraelFacts, KeepHyphens, LinkRows, PeopleGrid, QuoteBlock, StatGrid, TrackSummary } from "@/components/site/blocks"
 import { renders, showPlaceholders } from "@/lib/placeholders"
 import { LogoRow } from "@/components/site/LogoRow"
@@ -70,6 +72,26 @@ export default function HomePage() {
         <IsraelFacts heading={moment.factsHeading} className="reveal mt-20 md:mt-28" />
       </Section>
 
+      {/* Why now: the chain from the foundation to the lever (internal deck, in English). */}
+      <Gated item={whyNow.approval}>
+        <Section id="why-now" scene="approach" label={whyNow.eyebrow} labelAsHeading labelledBy="why-now-title">
+          <div className="grid gap-24 md:gap-32">
+            {whyNow.steps.slice(0, 2).map((step) => (
+              <WhyNowStep key={step.label} step={step} />
+            ))}
+          </div>
+        </Section>
+        <div data-scene="gap" className="relative pb-[clamp(5.5rem,3.5rem+8vw,11rem)]">
+          <div className="wrap">
+            <div className="col grid gap-24 md:gap-32">
+              {whyNow.steps.slice(2).map((step) => (
+                <WhyNowStep key={step.label} step={step} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </Gated>
+
       {/* The missing piece */}
       <Section id="problem" scene="gap" label={missingPiece.eyebrow} labelAsHeading labelledBy="problem-title">
         <div className="space-y-5">
@@ -93,6 +115,20 @@ export default function HomePage() {
           {how.heading}
         </h2>
         <p className="lede reveal mt-6 max-w-[38ch]">{how.lede}</p>
+        <div className="reveal mt-14 md:mt-20">
+          <h3 className="h-card">{how.lever.heading}</h3>
+          <ul className="mt-8 grid border-t border-rule/15 md:grid-cols-3">
+            {how.lever.steps.map((s) => (
+              <li key={s.title} className="border-b border-rule/15 py-5 md:pr-6 md:[&:not(:first-child)]:pl-6 md:[&:not(:last-child)]:border-r">
+                <p className="font-display text-[clamp(1.6rem,1.2rem+1.4vw,2.25rem)] font-medium leading-none tracking-[-0.03em] text-ink">{s.title}</p>
+                <p className="mt-3 text-[15px] leading-snug text-body">{s.body}</p>
+              </li>
+            ))}
+          </ul>
+          <Gated item={how.lever.targets}>
+            <p className="label mt-6 !text-ink">{how.lever.targets.value}</p>
+          </Gated>
+        </div>
         <ul className="hairlines mt-14 border-y border-rule/15 md:mt-20">
           {how.pillars.map((p) => (
             <li key={p.title} className="reveal grid gap-3 py-8 md:grid-cols-[10rem_1fr] md:gap-8 md:py-10">

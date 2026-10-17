@@ -88,6 +88,24 @@ export default function PartnerPage() {
         <CommonsDiagram className="reveal mt-14 md:mt-20" />
       </Section>
 
+      {/* Why now, in one line (internal deck summary, in English). */}
+      <Gated item={p.inOneLine.approval}>
+        <Section scene="gap" labelledBy="one-line-title">
+          <SectionRule />
+          <h2 id="one-line-title" className="h-section reveal max-w-[14ch]">
+            {p.inOneLine.heading}
+          </h2>
+          <ol className="hairlines reveal mt-12 border-y border-rule/15 md:mt-16">
+            {p.inOneLine.links.map((l) => (
+              <li key={l.label} className="grid gap-2 py-5 sm:grid-cols-[8rem_1fr] sm:gap-6">
+                <p className="label pt-1.5">{l.label}</p>
+                <p className="font-display text-[clamp(1.25rem,1.05rem+0.8vw,1.75rem)] font-medium leading-snug tracking-[-0.02em] text-ink">{l.text}</p>
+              </li>
+            ))}
+          </ol>
+        </Section>
+      </Gated>
+
       {/* Precedent */}
       <Section scene="route" labelledBy="precedent-title">
         <SectionRule />
