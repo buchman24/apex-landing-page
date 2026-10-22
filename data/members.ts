@@ -35,8 +35,9 @@ export const foundingTeamMembers: Member[] = [
   { id: "ofek", name: "Ofek Censor - Champion of Elite Cyber Course", description: "CEO at Rosewood Systems", imageSrc: "/team/ofek.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofekc/", isFounder: true },
   { id: "dvir", name: "Dvir Maimon - Operations", description: "Operations at APEX", imageSrc: "/team/dvir_maimon.jpeg", linkedinUrl: "https://www.linkedin.com/in/dvir-maimon-051982338/" },
   { id: "nadav", name: "Nadav Delgo - Platform", description: "Connecting Humans. Solving the Impossible", imageSrc: "/team/nadav_delgo.jpg", linkedinUrl: "https://www.linkedin.com/in/nadav-delgo/" },
-  { id: "amit", name: "Amit Buchman - Lead", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
+  { id: "amit", name: "Amit Buchman", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
   { id: "talya", name: "Talya Pines", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
+  { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
 
 ];
 
@@ -100,7 +101,6 @@ export const communityMembers: Member[] = [
   { id: "nativ", name: "Nativ Levy", description: "AI Researcher at Stealth", imageSrc: "/team/nativ.jpeg", linkedinUrl: "https://www.linkedin.com/in/nativ-levy/" },
   // { id: "benny_m", name: "Benny Meir", description: "DevOps Ninja", imageSrc: "/team/benny_meir.png", linkedinUrl: "" },
   // { id: "almog_b", name: "Almog Baku", description: "GenAI Community Founder", imageSrc: "/team/almog_baku.png", linkedinUrl: "https://www.linkedin.com/in/almogbaku/" },
-  { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
   // { id: "itzik_p", name: "Itzik Polad", description: "Chief Data Officer at LSports", imageSrc: "/team/itzik.webp", linkedinUrl: "https://www.linkedin.com/in/itzik-polad/" }
 ];
 
