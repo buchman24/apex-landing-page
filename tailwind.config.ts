@@ -20,6 +20,16 @@ const config = {
     },
     extend: {
       colors: {
+        paper: "rgb(var(--paper) / <alpha-value>)",
+        surface: "rgb(var(--surface) / <alpha-value>)",
+        "surface-2": "rgb(var(--surface-2) / <alpha-value>)",
+        ink: "rgb(var(--ink) / <alpha-value>)",
+        slate: "rgb(var(--slate) / <alpha-value>)",
+        body: "rgb(var(--body) / <alpha-value>)",
+        steel: "rgb(var(--steel) / <alpha-value>)",
+        rule: "rgb(var(--rule) / <alpha-value>)",
+        navy: "rgb(var(--navy) / <alpha-value>)",
+        brand: "rgb(var(--blue) / <alpha-value>)",
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -53,6 +63,19 @@ const config = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      fontFamily: {
+        sans: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ["var(--font-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        wordmark: ["var(--font-poppins)", "var(--font-inter)", "sans-serif"],
+      },
+      screens: {
+        /* Landscape phones and large text zoom. */
+        short: { raw: "(max-height: 520px)" },
+      },
+      maxWidth: {
+        site: "1360px",
       },
       borderRadius: {
         lg: "var(--radius)",

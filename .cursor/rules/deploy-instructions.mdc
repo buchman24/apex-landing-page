@@ -1,12 +1,20 @@
 ---
-description:
+description: How changes reach apex.org.il
 globs:
 alwaysApply: true
 ---
 
-To deploy:
+Never push to `main`. Anything merged to `main` goes live on apex.org.il within about a minute.
 
-1. pnpm run build
-2. Fix any issues
-3. Run as a single command:
-"git add .; git commit -m "updated"; git push"
+To ship a change:
+
+1. Work on a branch (for example `update/homepage-text`).
+2. Run `pnpm build` and fix any errors. TypeScript errors fail the build.
+3. Push the branch and open a pull request. Vercel adds a preview link to the PR.
+4. Check the preview on a phone, then ask the site owner to merge.
+
+Content lives in `content/` (text, numbers, events, people). Items marked `missing(...)` or `approved: false`
+block the production build until they are resolved; see `content/release.ts`.
+
+Do not touch DNS settings or Vercel environment variables. Keep `/add-member` and `data/members.ts` working:
+`/api/add-member` inserts one line into `communityMembers` right before `export const allMembers`.

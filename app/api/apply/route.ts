@@ -13,6 +13,8 @@ type ApplyBody = {
   militaryTrack?: string;
   track?: string;
   why?: string;
+  // Optional, added for Website 2.0: utm_* parameters of the link the applicant arrived from.
+  source?: string;
 };
 
 export async function POST(request: Request) {
@@ -24,6 +26,7 @@ export async function POST(request: Request) {
     const militaryTrack = (body.militaryTrack || "").trim();
     const track = (body.track || "").trim();
     const why = (body.why || "").trim();
+    const source = String(body.source || "").trim().slice(0, 500);
 
     if (!name || !email || !track || !linkedin) {
       return NextResponse.json(
@@ -60,6 +63,7 @@ export async function POST(request: Request) {
         militaryTrack,
         track: trackName,
         why,
+        source,
       }),
       redirect: "manual",
     });

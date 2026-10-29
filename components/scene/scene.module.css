@@ -1,0 +1,193 @@
+/*
+  Sized to the large viewport (toolbar hidden), not inset: 0, so it does not resize while a
+  mobile browser's toolbar slides in and out during scroll (each resize would clear the canvas).
+*/
+.scene {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  height: 100lvh;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background: #f4f3ef;
+}
+
+.poster,
+.poster img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: right bottom;
+  transition: opacity 700ms ease;
+}
+
+.canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity 700ms ease;
+}
+.live .canvas {
+  opacity: 1;
+}
+.live .poster {
+  opacity: 0;
+}
+
+/*
+  Readability veil between the scene and the text: a soft wash on the text side.
+  Its opacity follows the scroll (SceneCanvas sets it as the hero or a scene break comes into
+  view), so it never pulses on its own when someone scrolls quickly.
+*/
+.veil {
+  position: absolute;
+  inset: 0;
+  opacity: 1;
+  transition: background 600ms ease;
+  background: rgba(244, 243, 239, 0.86);
+}
+@media (min-width: 1024px) {
+  .veil {
+    background: linear-gradient(90deg, rgba(244, 243, 239, 0.95) 0%, rgba(244, 243, 239, 0.9) 46%, rgba(244, 243, 239, 0) 72%);
+  }
+}
+:global(html[data-scene-night]) .veil {
+  background: rgba(10, 22, 36, 0.8);
+}
+@media (min-width: 1024px) {
+  :global(html[data-scene-night]) .veil {
+    background: linear-gradient(90deg, rgba(10, 22, 36, 0.92) 0%, rgba(10, 22, 36, 0.86) 46%, rgba(10, 22, 36, 0) 72%);
+  }
+}
+:global(html:has([data-scene-hero])) .veil {
+  opacity: 0;
+}
+/* Full-width pages (the alumni gallery): the wash covers the whole screen. */
+:global(html[data-veil="full"]) .veil {
+  background: rgba(244, 243, 239, 0.93);
+}
+:global(html[data-scene-night][data-veil="full"]) .veil {
+  background: rgba(10, 22, 36, 0.9);
+}
+
+/*
+  Labels pinned to points in the scene. The dot sits on the point, a hairline leads to the text,
+  which sits above or below (data-v) and to the right or left (data-h) of the point.
+  The hero sentence halves read as display type; "The rails" is a small mono tag.
+*/
+.labels {
+  position: absolute;
+  inset: 0;
+  --label: #0d1b2a;
+  --label-line: rgba(13, 27, 42, 0.45);
+  --label-halo: rgba(244, 243, 239, 0.95);
+}
+:global(html[data-scene-night]) .labels {
+  --label: #ffffff;
+  --label-line: rgba(207, 224, 242, 0.6);
+  --label-halo: rgba(10, 22, 36, 0.95);
+}
+/* The small viewport height (toolbar shown): labels stay inside it. */
+.svh {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100vh;
+  height: 100svh;
+  visibility: hidden;
+}
+/* Hidden copies of the labels, used only to measure their text. */
+.measure {
+  visibility: hidden;
+}
+.label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  /* Opacity follows the scroll too; this only smooths single-frame steps. */
+  transition: opacity 120ms linear;
+  will-change: transform, opacity;
+  color: var(--label);
+}
+.label b {
+  position: absolute;
+  left: -3.5px;
+  top: -3.5px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--label);
+  box-shadow: 0 0 0 4px rgba(244, 243, 239, 0.55);
+}
+:global(html[data-scene-night]) .label b {
+  box-shadow: 0 0 0 4px rgba(10, 22, 36, 0.55);
+}
+.label i {
+  position: absolute;
+  left: 0;
+  width: 1px;
+  height: 24px;
+  background: var(--label-line);
+}
+.label span {
+  position: absolute;
+  white-space: nowrap;
+  text-shadow: 0 0 3px var(--label-halo), 0 0 10px var(--label-halo), 0 0 22px var(--label-halo);
+  font-family: var(--font-display), var(--font-inter), system-ui, sans-serif;
+  font-size: clamp(16px, 0.8rem + 0.55vw, 22px);
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+.label[data-wrap="1"] span {
+  white-space: normal;
+  width: max-content;
+  max-width: 10.5em;
+}
+.label[data-key="rails"] span {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.label[data-v="up"] i {
+  bottom: 8px;
+}
+.label[data-v="up"] span {
+  bottom: 34px;
+}
+.label[data-v="down"] i {
+  top: 8px;
+}
+.label[data-v="down"] span {
+  top: 34px;
+}
+.label[data-h="right"] span {
+  left: -4px;
+}
+.label[data-h="left"] span {
+  right: -4px;
+  text-align: right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .poster,
+  .poster img,
+  .canvas,
+  .label,
+  .veil {
+    transition: none;
+  }
+}
