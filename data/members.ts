@@ -34,8 +34,8 @@ export const foundingTeamMembers: Member[] = [
   { id: "roy", name: "Roy Nissim - Champion Talpiot", description: "2x Founder | PhD", imageSrc: "/team/roy.jpeg", linkedinUrl: "https://www.linkedin.com/in/roy-nissim/", isFounder: true },
   { id: "ofek", name: "Ofek Censor - Champion of Elite Cyber Course", description: "CEO at Rosewood Systems", imageSrc: "/team/ofek.jpeg", linkedinUrl: "https://www.linkedin.com/in/ofekc/", isFounder: true },
   { id: "dvir", name: "Dvir Maimon - Operations", description: "Operations at APEX", imageSrc: "/team/dvir_maimon.jpeg", linkedinUrl: "https://www.linkedin.com/in/dvir-maimon-051982338/" },
+  { id: "amit", name: "Amit Buchman", description: "Ex-Founder at LithiBlock | GP at Vitare Verde Capital", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
   { id: "nadav", name: "Nadav Delgo - Platform", description: "Connecting Humans. Solving the Impossible", imageSrc: "/team/nadav_delgo.jpg", linkedinUrl: "https://www.linkedin.com/in/nadav-delgo/" },
-  { id: "amit", name: "Amit Buchman", description: "Founder at LithiBlock", imageSrc: "/team/amit_buchman.JPG", linkedinUrl: "https://www.linkedin.com/in/amit-buchman-a7710b228/", isFounder: true },
   { id: "talya", name: "Talya Pines", description: "MBA at Chicago Booth", imageSrc: "/team/talya.jpeg", linkedinUrl: "https://www.linkedin.com/in/talya-pines/" },
   { id: "tamir_m", name: "Tamir Meerovitch", description: "Sr. Growth Strategy Executive at Frost & Sullivan", imageSrc: "/team/tal_meerovitch.jpeg", linkedinUrl: "https://www.linkedin.com/in/tamir-meerovitch/" },
 
