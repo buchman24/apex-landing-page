@@ -9,6 +9,7 @@ const APPS_SCRIPT_URL = process.env.GOOGLE_APPS_SCRIPT_URL;
 type ApplyBody = {
   name?: string;
   email?: string;
+  phone?: string;
   linkedin?: string;
   militaryTrack?: string;
   track?: string;
@@ -20,19 +21,28 @@ export async function POST(request: Request) {
     const body = (await request.json()) as ApplyBody;
     const name = (body.name || "").trim();
     const email = (body.email || "").trim();
+    const phone = (body.phone || "").trim();
     const linkedin = (body.linkedin || "").trim();
     const militaryTrack = (body.militaryTrack || "").trim();
     const track = (body.track || "").trim();
     const why = (body.why || "").trim();
 
-    if (!name || !email || !track || !linkedin) {
+    if (!name || !email || !track || !linkedin || !phone) {
       return NextResponse.json(
-        { error: "Name, email, LinkedIn profile, and track are required." },
+        { error: "Name, email, phone, LinkedIn profile, and track are required." },
         { status: 400 }
       );
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json({ error: "Please enter a valid email." }, { status: 400 });
+    }
+    // Israeli phone: local mobile "05X-XXXXXXX" (10 digits) or international "+972…".
+    const normalizedPhone = phone.replace(/[\s\-()]/g, "");
+    if (!/^05\d{8}$/.test(normalizedPhone) && !/^\+972\d{8,9}$/.test(normalizedPhone)) {
+      return NextResponse.json(
+        { error: "Please enter a valid Israeli phone number." },
+        { status: 400 }
+      );
     }
     const trackName = track === "Founders" ? "Founders" : "Architects";
 
@@ -56,6 +66,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         name,
         email,
+        phone,
         linkedin,
         militaryTrack,
         track: trackName,
