@@ -16,6 +16,13 @@ import { CheckCircle2, Loader2 } from "lucide-react";
 
 export type Track = "Architects" | "Founders";
 
+// Israeli phone validation: local mobile "05X-XXXXXXX" (10 digits) or
+// international "+972…". Tolerates spaces, dashes and parentheses.
+export function isValidIsraeliPhone(raw: string): boolean {
+  const s = raw.replace(/[\s\-()]/g, "");
+  return /^05\d{8}$/.test(s) || /^\+972\d{8,9}$/.test(s);
+}
+
 export function ApplyForm({
   defaultTrack = "Architects",
   onClose,
@@ -32,19 +39,24 @@ export function ApplyForm({
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [linkedin, setLinkedin] = useState("");
+  const [phone, setPhone] = useState("");
   const [militaryTrack, setMilitaryTrack] = useState("");
   const [track, setTrack] = useState<Track>(defaultTrack);
   const [why, setWhy] = useState("");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitting(true);
     setError(null);
+    if (!isValidIsraeliPhone(phone)) {
+      setError("אנא הזינו מספר טלפון תקין (05X-XXXXXXX או +972).");
+      return;
+    }
+    setSubmitting(true);
     try {
       const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, linkedin, militaryTrack, track, why }),
+        body: JSON.stringify({ name, email, phone, linkedin, militaryTrack, track, why }),
       });
       const data = await res.json().catch(() => ({}));
       if (!res.ok) {
@@ -103,6 +115,20 @@ export function ApplyForm({
           placeholder="https://www.linkedin.com/in/…"
           value={linkedin}
           onChange={(e) => setLinkedin(e.target.value)}
+          required
+        />
+      </div>
+
+      <div className="space-y-2" dir="rtl">
+        <Label htmlFor="apply-phone">טלפון *</Label>
+        <Input
+          id="apply-phone"
+          type="tel"
+          inputMode="tel"
+          dir="ltr"
+          placeholder="05X-XXXXXXX או ‎+972"
+          value={phone}
+          onChange={(e) => setPhone(e.target.value)}
           required
         />
       </div>
